@@ -61,7 +61,7 @@
                 android:layout_below="@id/cv_carview"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="@string/version_name"
+                android:text="@string/version"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -179,7 +179,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="http://www.v-sounds.com"
+                        android:text="@string/www"
                         android:textIsSelectable="true"
                         android:textColor="@color/black"
                         android:textSize="14sp" />
@@ -209,7 +209,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="http://github.com/envyfan"
+                        android:text="@string/github"
                         android:textIsSelectable="true"
                         android:textColor="@color/black"
                         android:textSize="14sp" />

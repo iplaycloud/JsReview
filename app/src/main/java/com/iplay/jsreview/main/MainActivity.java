@@ -21,24 +21,47 @@ package com.iplay.jsreview.main;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
+import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.commons.utils.DoubleClickExitHelper;
+import com.iplay.jsreview.review.view.ReviewFragment;
+import com.iplay.jsreview.setting.view.SettingFragment;
+import com.iplay.jsreview.test.view.TestFragment;
 
-public class MainActivity extends BaseActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     private DoubleClickExitHelper mDoubleClickExit;
     private FragmentTabHost mFragmentTabHost;
     protected TextView mCount;
     private View mRootView;
+
+    private ViewPager mViewPager;
+    private FragmentPagerAdapter mAdapter;
+    private List<Fragment> mFragments;
+
+    private LinearLayout mTabReview;
+    private LinearLayout mTabTest;
+    private LinearLayout mTabSettings;
+
+    private ImageButton mImgReview;
+    private ImageButton mImgTest;
+    private ImageButton mImgSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,39 +71,129 @@ public class MainActivity extends BaseActivity {
 
         initToolBar();
         initView();
+        initEvent();
         setStatusBarCompat();
     }
 
-    private void initView() {
+    private void initView()
+    {
         //测试栏目的题目统计TextView
         mCount = (TextView) findViewById(R.id.tv_count);
         mDoubleClickExit = new DoubleClickExitHelper(this);
 
-        Indicator[] indicators = Indicator.values();
-        mFragmentTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        mFragmentTabHost.setup(getApplicationContext(), getSupportFragmentManager(), R.id.realtabcontent);
+        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
 
-        //初始化Tab
-        for (int i = 0; i < indicators.length; i++){
-            TabHost.TabSpec tabSpec = mFragmentTabHost.newTabSpec(getString(indicators[i].getResName()));
-            tabSpec.setIndicator(getIndicatorView(indicators[i]));
-            mFragmentTabHost.addTab(tabSpec, indicators[i].getClz(), null);
+        mTabReview = (LinearLayout) findViewById(R.id.id_tab_review);
+        mTabTest = (LinearLayout) findViewById(R.id.id_tab_test);
+        mTabSettings = (LinearLayout) findViewById(R.id.id_tab_setting);
+
+        mImgReview = (ImageButton) findViewById(R.id.id_img_review);
+        mImgTest = (ImageButton) findViewById(R.id.id_img_test);
+        mImgSettings = (ImageButton) findViewById(R.id.id_img_setting);
+
+        mFragments = new ArrayList<Fragment>();
+        Fragment mTab01 = new ReviewFragment();
+        Fragment mTab02 = new TestFragment();
+        Fragment mTab03 = new SettingFragment();
+        mFragments.add(mTab01);
+        mFragments.add(mTab02);
+        mFragments.add(mTab03);
+
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
+        {
+            @Override
+            public int getCount()
+            {
+                return mFragments.size();
+            }
+
+            @Override
+            public Fragment getItem(int arg0)
+            {
+                return mFragments.get(arg0);
+            }
+        };
+        mViewPager.setAdapter(mAdapter);
+    }
+
+    private void initEvent()
+    {
+        mTabReview.setOnClickListener(this);
+        mTabTest.setOnClickListener(this);
+        mTabSettings.setOnClickListener(this);
+
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
+        {
+
+            @Override
+            public void onPageSelected(int arg0)
+            {
+                int currentItem = mViewPager.getCurrentItem();
+                setTab(currentItem);
+            }
+
+            @Override
+            public void onPageScrolled(int arg0, float arg1, int arg2)
+            {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int arg0)
+            {
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v)
+    {
+        switch (v.getId())
+        {
+            case R.id.id_tab_review:
+                setSelect(0);
+                break;
+            case R.id.id_tab_test:
+                setSelect(1);
+                break;
+            case R.id.id_tab_setting:
+                setSelect(2);
+                break;
+
+            default:
+                break;
         }
-        //去除底部按钮之间的分割线
-        if (android.os.Build.VERSION.SDK_INT > 10) {
-            mFragmentTabHost.getTabWidget().setShowDividers(0);
+    }
 
-            mFragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-                @Override
-                public void onTabChanged(String tabId) {
-                    if(tabId.equals(getString(Indicator.TEST.getResName()))){
-                        mCount.setVisibility(View.VISIBLE);
-                    }else{
-                        mCount.setVisibility(View.GONE);
-                    }
-                }
-            });
-    }}
+    private void setSelect(int i)
+    {
+        setTab(i);
+        mViewPager.setCurrentItem(i);
+    }
+
+    private void setTab(int i)
+    {
+        resetImgs();
+
+        switch (i)
+        {
+            case 0:
+                mImgReview.setImageResource(R.mipmap.icon_review_on);
+                break;
+            case 1:
+                mImgTest.setImageResource(R.mipmap.icon_test_on);
+                break;
+            case 2:
+                mImgSettings.setImageResource(R.mipmap.icon_other_on);
+                break;
+        }
+    }
+
+    private void resetImgs()
+    {
+        mImgReview.setImageResource(R.mipmap.icon_review_off);
+        mImgTest.setImageResource(R.mipmap.icon_test_off);
+        mImgSettings.setImageResource(R.mipmap.icon_other_off);
+    }
 
     public View getRootView() {
         return mRootView;
@@ -89,28 +202,6 @@ public class MainActivity extends BaseActivity {
 
     public void setTextCount(int count){
         mCount.setText("已做"+count+"题");
-    }
-
-    /** 返回设置好的底部按钮
-     * @param indicator1
-     * @return
-     */
-    private View getIndicatorView(Indicator indicator1) {
-        View view = LayoutInflater.from(this).inflate(R.layout.tab_indicator, null);
-        TextView indicator = (TextView) view.findViewById(R.id.tab_title);
-
-        indicator.setText(getString(indicator1.getResName()));
-
-        indicator.setTextSize(TypedValue.COMPLEX_UNIT_SP,10);
-        Drawable icon = this.getResources().getDrawable(indicator1.getResIcon());
-//        自定义ICON大小
-//        icon.setBounds(0, 0, 75, 75);
-//        indicator.setCompoundDrawables(null,icon,null,null);
-        indicator.setCompoundDrawablePadding(3);
-        indicator.setCompoundDrawablesWithIntrinsicBounds(null, icon, null, null);
-        indicator.setPadding(0,8,0,5);
-
-        return view;
     }
 
     @Override
