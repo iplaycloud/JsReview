@@ -11,15 +11,32 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize">
 
-        <TextView
-            android:id="@+id/tv_count"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="right"
-            android:layout_marginRight="16dp"
-            android:textColor="#fff"
-            android:textSize="12sp"
-            android:visibility="gone" />
+            android:layout_marginRight="16dp">
+
+            <ImageButton
+                android:id="@+id/ib_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/theme_color"
+                android:src="@mipmap/icon_search"
+                android:paddingRight="20dp"
+                android:gravity="center" />
+
+            <ImageButton
+                android:id="@+id/ib_add"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/theme_color"
+                android:src="@mipmap/icon_add"
+                android:paddingRight="10dp"
+                android:layout_toRightOf="@id/ib_search"
+                android:gravity="center" />
+
+        </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
 </android.support.design.widget.AppBarLayout>

@@ -5,12 +5,11 @@
     android:id="@+id/cv_carview"
     android:layout_width="@dimen/list_review_carview_width"
     android:layout_height="@dimen/list_review_carview_height"
-    android:layout_margin="10dp"
+    android:layout_margin="8dp"
     app:cardBackgroundColor="@color/theme_color_level2"
     app:cardCornerRadius="10dp"
     android:foreground="?android:attr/selectableItemBackground"
     >
-
 
     <TextView
         android:id="@+id/tv_carview"

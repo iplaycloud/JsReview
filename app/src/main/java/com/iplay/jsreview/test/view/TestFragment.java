@@ -108,7 +108,7 @@ public class TestFragment extends BaseFragment {
     private void creatViews() {
 
         //设置已做题目统计数
-        mParentActivity.setTextCount(0);
+        //mParentActivity.setTextCount(0);
 
         //数据加载loading 布局
         mLoadingLayout = (LoadingLayout) mRootView.findViewById(R.id.ly_loading);
@@ -183,7 +183,7 @@ public class TestFragment extends BaseFragment {
                     resetLayout();
                 }
                 //顶部toolbar做题总数统计
-                mParentActivity.setTextCount(++sTestCount);
+                //mParentActivity.setTextCount(++sTestCount);
             }
         });
         //显示答案

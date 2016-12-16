@@ -60,7 +60,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private void initView()
     {
         //测试栏目的题目统计TextView
-        mCount = (TextView) findViewById(R.id.tv_count);
         mDoubleClickExit = new DoubleClickExitHelper(this);
 
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
@@ -96,6 +95,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             }
         };
         mViewPager.setAdapter(mAdapter);
+
+        mImgReview.setImageResource(R.mipmap.icon_review_on);
     }
 
     private void initEvent()
@@ -179,11 +180,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     public View getRootView() {
         return mRootView;
-    }
-
-
-    public void setTextCount(int count){
-        mCount.setText("已做"+count+"题");
     }
 
     @Override

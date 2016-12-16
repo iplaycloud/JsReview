@@ -1,5 +1,3 @@
-
-
 apply plugin: 'com.android.application'
 
 android {
@@ -7,11 +5,11 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.iplay.androidreview"
+        applicationId "com.iplay.jsreview"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 2
-        versionName "V1.0.1"
+        versionName "V1.0.3"
     }
     buildTypes {
         release {

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.iplay.jsreview.R;
-import com.iplay.jsreview.review.view.adapter.ReviewListAdapter;
 import com.iplay.jsreview.review.view.adapter.ReviewListAdapterGV;
 import com.iplay.jsreview.review.model.bean.Point;
 import com.iplay.jsreview.review.model.bean.Unit;
@@ -143,7 +142,7 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
             if (pointsForUnit.size() == 0) {
                 Point point = new Point();
                 point.setName("暂无内容\n敬请期待");
-                point.setColor(ReviewListAdapter.NO_CONTENT);
+                point.setColor(ReviewListAdapterGV.NO_CONTENT);
                 pointsForUnit.add(point);
             }
             map.put(unit.getName(), pointsForUnit);

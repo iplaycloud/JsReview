@@ -6,24 +6,25 @@
 
     <TextView
         android:id="@+id/tv_unit"
+        android:text="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/theme_color_level2"
         android:padding="5dp"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="15sp" />
 
     <com.iplay.jsreview.review.view.view.GridViewEx
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
         android:id="@+id/gv_carview"
         android:layout_width="match_parent"
-        android:numColumns="3"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:horizontalSpacing="15dp"
-        android:verticalSpacing="15dp"
-        android:layout_height="wrap_content">
+        android:numColumns="4"
+        android:verticalSpacing="15dp">
 
     </com.iplay.jsreview.review.view.view.GridViewEx>
 
