@@ -68,8 +68,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-
-
     /**
      * 是否隐藏ToolBar返回按钮
      *

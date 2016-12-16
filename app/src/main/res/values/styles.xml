@@ -45,4 +45,9 @@
         <item name="android:background">@drawable/bt_selector</item>
     </style>
 
+    <!-- toolbar弹出菜单样式 -->
+    <style name="ToolbarPopupTheme" parent="@style/ThemeOverlay.AppCompat">
+        <item name="android:colorBackground">#212121</item>
+    </style>
+
 </resources>

@@ -1,30 +1,41 @@
 
 package com.iplay.jsreview.main;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.commons.utils.DoubleClickExitHelper;
 import com.iplay.jsreview.review.view.ReviewFragment;
+import com.iplay.jsreview.review.view.SearchActivity;
+import com.iplay.jsreview.setting.model.bean.Suggest;
 import com.iplay.jsreview.setting.view.SettingFragment;
+import com.iplay.jsreview.setting.view.SuggestActivity;
 import com.iplay.jsreview.test.view.TestFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.bmob.v3.listener.SaveListener;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener{
 
@@ -185,6 +196,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public String returnToolBarTitle() {
         return getString(R.string.app_name);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add:
+
+                break;
+
+            case R.id.action_search:
+                Intent intent = new Intent(this, SearchActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     /**

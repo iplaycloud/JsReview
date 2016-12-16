@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:title="搜索"
+        android:icon="@mipmap/icon_search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_add"
+        android:title="添加"
+        android:icon="@mipmap/icon_add"
+        app:showAsAction="always">
+
+        <!-- item包含menu表示该menu是item下的子菜单 -->
+        <menu>
+            <!-- 将group中的菜单项放于一个组里面 -->
+            <group>
+                <item
+                    android:id="@+id/toolbar_r_1"
+                    android:title="登录"
+                    android:icon="@mipmap/icon_add"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/toolbar_r_2"
+                    android:title="注册"
+                    android:icon="@mipmap/icon_add"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/toolbar_r_3"
+                    android:title="设置"
+                    android:icon="@mipmap/icon_add"
+                    app:showAsAction="ifRoom" />
+            </group>
+        </menu>
+
+    </item>
+
+</menu>
