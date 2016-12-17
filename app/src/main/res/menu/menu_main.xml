@@ -20,17 +20,12 @@
             <group>
                 <item
                     android:id="@+id/toolbar_r_1"
-                    android:title="登录"
+                    android:title="添加知识点"
                     android:icon="@mipmap/icon_add"
                     app:showAsAction="ifRoom" />
                 <item
                     android:id="@+id/toolbar_r_2"
-                    android:title="注册"
-                    android:icon="@mipmap/icon_add"
-                    app:showAsAction="ifRoom" />
-                <item
-                    android:id="@+id/toolbar_r_3"
-                    android:title="设置"
+                    android:title="添加测试题"
                     android:icon="@mipmap/icon_add"
                     app:showAsAction="ifRoom" />
             </group>

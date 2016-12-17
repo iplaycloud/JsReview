@@ -4,10 +4,13 @@ package com.iplay.jsreview.review.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.review.model.bean.Point;
+import com.iplay.jsreview.review.view.view.AddPointActivity;
 import com.iplay.jsreview.test.view.FavListFragment;
 
 public class ListActivity extends BaseActivity {
@@ -90,5 +93,27 @@ public class ListActivity extends BaseActivity {
             default:
                 return getString(R.string.app_name);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_content, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_add_point:
+                Intent intent = new Intent(this, AddPointActivity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -24,7 +24,6 @@ import java.util.Map;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
-
 /**
  * Author : iplay on .
  * Mail：iplaycloud@gmail.com
