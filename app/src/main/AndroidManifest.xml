@@ -38,7 +38,7 @@
         <activity android:name=".setting.view.CreateTableActivity" />
         <activity android:name=".setting.view.VersionNoteActivity" />
         <activity android:name=".review.view.SearchActivity" />
-        <activity android:name=".review.view.view.AddPointActivity"></activity>
+        <activity android:name=".review.view.AddPointActivity"></activity>
     </application>
 
 </manifest>

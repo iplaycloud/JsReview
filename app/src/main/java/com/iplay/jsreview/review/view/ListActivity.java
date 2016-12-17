@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.review.model.bean.Point;
-import com.iplay.jsreview.review.view.view.AddPointActivity;
 import com.iplay.jsreview.test.view.FavListFragment;
 
 public class ListActivity extends BaseActivity {
