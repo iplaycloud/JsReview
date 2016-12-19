@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view;
 
 import android.content.Context;
@@ -8,16 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.orhanobut.logger.Logger;
 import com.iplay.jsreview.R;
-import com.iplay.jsreview.review.view.adapter.ContentListAdapter;
 import com.iplay.jsreview.commons.base.system.AppContext;
-import com.iplay.jsreview.review.model.bean.Content;
-import com.iplay.jsreview.review.model.bean.Point;
+import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.cache.ReadCacheAsyncTask;
 import com.iplay.jsreview.commons.cache.SaveCacheAsyncTask;
 import com.iplay.jsreview.commons.view.LoadingLayout;
-import com.iplay.jsreview.commons.cache.CacheHelper;
+import com.iplay.jsreview.review.model.bean.Content;
+import com.iplay.jsreview.review.model.bean.Point;
+import com.iplay.jsreview.review.view.adapter.ContentListAdapter;
+import com.orhanobut.logger.Logger;
 
 import java.io.Serializable;
 import java.util.List;
@@ -147,7 +146,7 @@ public class ContentListFragment extends BasePutToRefreshFragment<ContentListAda
                 query.setSkip(PAGE_LIMIT * (mCurrentPageCount + 1));
             }
         }
-        String sql = "select title,small,createdAt from Content where point='"+mPoint.getObjectId()+"' order by updatedAt DESC";
+        String sql = "select title,small,createdAt from Content where point='" + mPoint.getObjectId() + "' order by updatedAt DESC";
         query.doSQLQuery(AppContext.getInstance(), sql, new SQLQueryListener<Content>() {
             @Override
             public void done(BmobQueryResult<Content> bmobQueryResult, BmobException e) {

@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.os.Bundle;
@@ -18,15 +17,15 @@ import com.iplay.jsreview.setting.model.bean.Suggest;
 import cn.bmob.v3.listener.SaveListener;
 
 public class SuggestActivity extends BaseActivity {
-    private TextInputLayout mTiSuggest,mTiMailOrQq;
+    private TextInputLayout mTiSuggest, mTiMailOrQq;
     private View mRootView;
     //防止多次提交数据
-    private boolean isPosting=false;
+    private boolean isPosting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_suggest,null);
+        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_suggest, null);
         setContentView(mRootView);
         initToolBar();
         showOrHideToolBarNavigation(true);
@@ -44,16 +43,16 @@ public class SuggestActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.action_submit:
                 String msg = mTiSuggest.getEditText().getText().toString();
-                if(TextUtils.isEmpty(msg)){
+                if (TextUtils.isEmpty(msg)) {
                     Snackbar.make(mRootView, R.string.dont_no_text, Snackbar.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Suggest suggest = new Suggest();
                     suggest.setMsg(msg);
                     suggest.setMail_qq(mTiMailOrQq.getEditText().getText().toString());
-                    if(!isPosting) {
+                    if (!isPosting) {
                         isPosting = true;
                         suggest.save(SuggestActivity.this, new SaveListener() {
                             @Override
@@ -69,7 +68,7 @@ public class SuggestActivity extends BaseActivity {
                                 Snackbar.make(mRootView, R.string.sugesst_error, Snackbar.LENGTH_SHORT).show();
                             }
                         });
-                    }else{
+                    } else {
                         Snackbar.make(mRootView, R.string.dont_repeat, Snackbar.LENGTH_SHORT).show();
                     }
                 }

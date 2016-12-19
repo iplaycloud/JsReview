@@ -60,15 +60,15 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:id="@+id/bt_update_text"
                 android:layout_width="wrap_content"
-                android:layout_marginRight="30dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_bg"
                 android:layout_alignParentRight="true"
-                android:clickable="true"
                 android:layout_below="@id/tv_about"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bt_bg"
+                android:clickable="true"
                 android:padding="5dp"
                 android:text="@string/update_text"
                 android:textColor="@color/bt_next_text"
@@ -80,8 +80,8 @@
                 android:layout_below="@id/bt_update_text"
                 android:orientation="vertical"
                 android:paddingBottom="30dp"
-                android:paddingRight="30dp"
                 android:paddingLeft="30dp"
+                android:paddingRight="30dp"
                 android:paddingTop="10dp">
 
                 <LinearLayout
@@ -101,8 +101,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="136237429"
-                        android:textIsSelectable="true"
                         android:textColor="@color/black"
+                        android:textIsSelectable="true"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -161,8 +161,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="@string/www"
-                        android:textIsSelectable="true"
                         android:textColor="@color/black"
+                        android:textIsSelectable="true"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -191,8 +191,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:text="@string/github"
-                        android:textIsSelectable="true"
                         android:textColor="@color/black"
+                        android:textIsSelectable="true"
                         android:textSize="14sp" />
 
                 </LinearLayout>

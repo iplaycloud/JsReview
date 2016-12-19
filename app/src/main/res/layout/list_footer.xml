@@ -18,10 +18,10 @@
         android:padding="15dip">
 
         <ProgressBar
-            android:layout_gravity="center_vertical"
             android:id="@+id/progressbar"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:indeterminate="true"
             android:indeterminateDrawable="@drawable/progressloading"
             android:indeterminateDuration="2000"
@@ -29,11 +29,11 @@
             android:visibility="visible" />
 
         <TextView
-            android:layout_gravity="center_vertical"
-
             android:id="@+id/text"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dip"
             android:text="@string/loading"
             android:textColor="@color/black"

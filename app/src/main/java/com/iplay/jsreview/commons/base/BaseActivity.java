@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.base;
 
 import android.content.pm.ActivityInfo;
@@ -8,11 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.orhanobut.logger.Logger;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.system.AppManager;
 import com.iplay.jsreview.commons.base.system.StatusBarCompat;
 import com.iplay.jsreview.commons.utils.TDevice;
+import com.orhanobut.logger.Logger;
 
 
 /**

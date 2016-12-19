@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.base.system;
 
 import android.content.Context;
@@ -50,7 +48,7 @@ public class Settings {
         return getPreferences(FILE_CONFIG).getInt(key, -1);
     }
 
-    public static int getInt(String key,int defaultInt) {
+    public static int getInt(String key, int defaultInt) {
         return getPreferences(FILE_CONFIG).getInt(key, defaultInt);
     }
 
@@ -65,7 +63,7 @@ public class Settings {
         return getPreferences(FILE_CONFIG).getBoolean(key, false);
     }
 
-    public static Boolean getBoolean(String key,boolean defaultBoolean) {
+    public static Boolean getBoolean(String key, boolean defaultBoolean) {
         return getPreferences(FILE_CONFIG).getBoolean(key, defaultBoolean);
     }
 }

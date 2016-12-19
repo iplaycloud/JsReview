@@ -4,14 +4,14 @@
 
     <item
         android:id="@+id/action_search"
-        android:title="搜索"
         android:icon="@mipmap/icon_search"
+        android:title="搜索"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_add"
-        android:title="添加"
         android:icon="@mipmap/icon_add"
+        android:title="添加"
         app:showAsAction="always">
 
         <!-- item包含menu表示该menu是item下的子菜单 -->
@@ -19,14 +19,19 @@
             <!-- 将group中的菜单项放于一个组里面 -->
             <group>
                 <item
-                    android:id="@+id/toolbar_r_1"
-                    android:title="添加知识点"
+                    android:id="@+id/toolbar_r_0"
                     android:icon="@mipmap/icon_add"
+                    android:title="新建单元"
+                    app:showAsAction="ifRoom" />
+                <item
+                    android:id="@+id/toolbar_r_1"
+                    android:icon="@mipmap/icon_add"
+                    android:title="添加知识点"
                     app:showAsAction="ifRoom" />
                 <item
                     android:id="@+id/toolbar_r_2"
-                    android:title="添加测试题"
                     android:icon="@mipmap/icon_add"
+                    android:title="添加测试题"
                     app:showAsAction="ifRoom" />
             </group>
         </menu>

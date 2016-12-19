@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.main;
 
 import android.Manifest;
@@ -9,21 +8,19 @@ import android.os.Handler;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.system.AppManager;
-import com.iplay.jsreview.setting.view.PermissionsActivity;
 import com.iplay.jsreview.commons.utils.PermissionsChecker;
+import com.iplay.jsreview.setting.view.PermissionsActivity;
 
 
 public class AppStartActivity extends Activity {
-
-    private final int SPLASH_DISPLAY_LENGHT = 2000; // 休眠2秒
-
-    private static final int REQUEST_CODE = 0; // 请求码
 
     // 所需的全部权限
     static final String[] PERMISSIONS = new String[]{
             Manifest.permission.READ_PHONE_STATE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
+    private static final int REQUEST_CODE = 0; // 请求码
+    private final int SPLASH_DISPLAY_LENGHT = 1000; // 休眠2秒
     private PermissionsChecker mPermissionsChecker; // 权限检测器
 
 
@@ -48,7 +45,7 @@ public class AppStartActivity extends Activity {
         // 缺少权限时, 进入权限配置页面
         if (mPermissionsChecker.lacksPermissions(PERMISSIONS)) {
             PermissionsActivity.startActivityForResult(this, REQUEST_CODE, PERMISSIONS);
-        }else{
+        } else {
             enterMainDelay();
         }
     }

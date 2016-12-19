@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.commons.view;
 
 import android.content.Context;
@@ -53,7 +52,7 @@ public class LoadingLayout extends LinearLayout {
 
     private void init() {
         setEnabled(false);
-        View view = LayoutInflater.from(mContext).inflate(R.layout.loading,this,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.loading, this, false);
         mErrorImage = (ImageView) view.findViewById(R.id.img_error);
         mRefreshImage = (ImageView) view.findViewById(R.id.img_refresh);
         mTextView = (TextView) view.findViewById(R.id.tv_tip);
@@ -62,7 +61,7 @@ public class LoadingLayout extends LinearLayout {
         addView(view);
     }
 
-    public int getState(){
+    public int getState() {
         return sState;
     }
 

@@ -22,8 +22,6 @@ package com.iplay.jsreview.commons.base.system;
 import android.app.Activity;
 import android.content.Context;
 
-
-
 import java.util.Stack;
 
 /**
@@ -36,7 +34,8 @@ public class AppManager {
     private static Stack<Activity> activityStack;
     private static AppManager instance;
 
-    private AppManager() {}
+    private AppManager() {
+    }
 
     /**
      * 单一实例
@@ -46,6 +45,25 @@ public class AppManager {
             instance = new AppManager();
         }
         return instance;
+    }
+
+    /**
+     * 获取指定的Activity
+     *
+     * @author kymjs
+     */
+    public static Activity getActivity(Class<?> cls) {
+        if (activityStack != null)
+            for (Activity activity : activityStack) {
+                if (activity.getClass().equals(cls)) {
+                    return activity;
+                }
+            }
+        return null;
+    }
+
+    public static Stack<Activity> getActivitys() {
+        return activityStack;
     }
 
     /**
@@ -111,25 +129,6 @@ public class AppManager {
     }
 
     /**
-     * 获取指定的Activity
-     *
-     * @author kymjs
-     */
-    public static Activity getActivity(Class<?> cls) {
-        if (activityStack != null)
-            for (Activity activity : activityStack) {
-                if (activity.getClass().equals(cls)) {
-                    return activity;
-                }
-            }
-        return null;
-    }
-
-    public static Stack<Activity> getActivitys(){
-        return activityStack;
-    }
-
-    /**
      * 退出应用程序
      */
     public void AppExit(Context context) {
@@ -142,10 +141,12 @@ public class AppManager {
         }
     }
 
-    /**返回当前Activity栈中Activity的数量
+    /**
+     * 返回当前Activity栈中Activity的数量
+     *
      * @return
      */
-    public int getActivityCount(){
+    public int getActivityCount() {
         int count = activityStack.size();
         return count;
     }
@@ -155,8 +156,8 @@ public class AppManager {
      */
     public void removeActivity(Activity activity) {
         if (activityStack == null) {
-           return;
-        }else if(activityStack.contains(activity)){
+            return;
+        } else if (activityStack.contains(activity)) {
             activityStack.remove(activity);
         }
 

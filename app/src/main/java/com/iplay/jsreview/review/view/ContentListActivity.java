@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view;
 
 import android.content.Intent;
@@ -62,7 +61,7 @@ public class ContentListActivity extends BaseActivity {
         }
     }
 
-    private void showFavListFragment(){
+    private void showFavListFragment() {
         mFavListFragment = new FavListFragment();
         Bundle bundle = new Bundle();
         mFavListFragment.setArguments(bundle);

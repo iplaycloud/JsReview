@@ -88,14 +88,14 @@
                 android:id="@+id/et_label_min_wifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/edt_gb"
                 android:layout_alignBaseline="@id/tv_label_min_wifi"
                 android:layout_toLeftOf="@id/tv_label_min_wifi"
+                android:background="@mipmap/edt_gb"
                 android:digits="1234567890"
                 android:maxLength="6"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -138,9 +138,9 @@
                 android:id="@+id/et_label_min_other"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/edt_gb"
                 android:layout_alignBaseline="@id/tv_label_min_other"
                 android:layout_toLeftOf="@id/tv_label_min_other"
+                android:background="@mipmap/edt_gb"
                 android:digits="1234567890"
                 android:maxLength="6"
                 android:textColor="@color/black"

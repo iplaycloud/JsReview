@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view;
 
 import android.content.Intent;
@@ -7,17 +6,17 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 
-import com.orhanobut.logger.Logger;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.cache.ReadCacheAsyncTask;
 import com.iplay.jsreview.commons.cache.SaveCacheAsyncTask;
-import com.iplay.jsreview.review.model.bean.Content;
-import com.iplay.jsreview.commons.view.LoadingLayout;
-import com.iplay.jsreview.commons.view.ScrollViewEx;
 import com.iplay.jsreview.commons.utils.TDevice;
 import com.iplay.jsreview.commons.utils.WebViewHelper;
+import com.iplay.jsreview.commons.view.LoadingLayout;
+import com.iplay.jsreview.commons.view.ScrollViewEx;
+import com.iplay.jsreview.review.model.bean.Content;
+import com.orhanobut.logger.Logger;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;

@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.commons.view;
 
 import android.content.Context;
@@ -33,7 +32,7 @@ public class SquareCarView extends CardView {
         int childHeightSize = getMeasuredHeight();
         //高度和宽度一样
         widthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize, MeasureSpec.EXACTLY);
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize/4*3, MeasureSpec.EXACTLY);
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize / 4 * 3, MeasureSpec.EXACTLY);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 

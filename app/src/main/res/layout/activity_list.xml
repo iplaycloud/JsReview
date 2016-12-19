@@ -8,10 +8,9 @@
     <include layout="@layout/include_toolbar" />
 
     <FrameLayout
-        android:layout_below="@+id/toolbar"
         android:id="@+id/id_content_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       />
+        android:layout_below="@+id/toolbar" />
 
 </RelativeLayout>

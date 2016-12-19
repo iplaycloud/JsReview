@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/padding_buttom_to_horizontalscrollview_and_carview"
-            android:paddingTop="@dimen/padding_top_to_horizontalscrollview_and_carview"/>
+            android:paddingTop="@dimen/padding_top_to_horizontalscrollview_and_carview" />
     </HorizontalScrollView>
 
 </LinearLayout>

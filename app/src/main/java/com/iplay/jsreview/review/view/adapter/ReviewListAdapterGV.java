@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view.adapter;
 
 import android.content.Context;
@@ -62,15 +61,15 @@ public class ReviewListAdapterGV extends MyBaseAdapter<Map<String, List<Point>>>
         holder.tv_unit.setText(unitName);
         List<Point> points = gruop.get(unitName);
         holder.gv_carview.setAdapter(new GvAdapter(points));
-            holder.gv_carview.setOnItemClickListener(new GridView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Point point = (Point) parent.getItemAtPosition(position);
-                    if (point.getObjectId() != null) {
-                        startContentList(point);
-                    }
+        holder.gv_carview.setOnItemClickListener(new GridView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Point point = (Point) parent.getItemAtPosition(position);
+                if (point.getObjectId() != null) {
+                    startContentList(point);
                 }
-            });
+            }
+        });
         return convertView;
     }
 

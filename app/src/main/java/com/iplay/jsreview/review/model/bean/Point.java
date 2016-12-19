@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.model.bean;
 
 import cn.bmob.v3.BmobObject;
@@ -8,7 +7,7 @@ import cn.bmob.v3.BmobObject;
  * Mail：iplaycloud@gmail.com
  * Description：单元--知识点
  */
-public class Point extends BmobObject{
+public class Point extends BmobObject {
 
     //知识点名字
     private String name;

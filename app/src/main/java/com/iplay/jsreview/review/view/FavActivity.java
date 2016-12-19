@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view;
 
 import android.content.Intent;
@@ -16,13 +15,13 @@ import android.widget.TextView;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
+import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.test.model.bean.Test;
 import com.iplay.jsreview.test.view.TestFragment;
 import com.iplay.jsreview.test.view.view.AnswerItem;
-import com.iplay.jsreview.commons.cache.CacheHelper;
 
 public class FavActivity extends BaseActivity {
-    public static final String FAV_KEY="fav_key";
+    public static final String FAV_KEY = "fav_key";
     //当前题目
     private Test mTest;
     //小圆点控件
@@ -39,10 +38,30 @@ public class FavActivity extends BaseActivity {
 
     private View mRootView;
 
+    public static void scrollToBottom(final ScrollView scroll, final View inner) {
+
+        Handler mHandler = new Handler();
+
+        mHandler.post(new Runnable() {
+            public void run() {
+                if (scroll == null || inner == null) {
+                    return;
+                }
+
+                int offset = inner.getMeasuredHeight() - scroll.getHeight();
+                if (offset < 0) {
+                    offset = 0;
+                }
+
+                scroll.smoothScrollTo(0, offset);
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_fav,null);
+        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_fav, null);
         setContentView(mRootView);
         initArgument();
         initToolBar();
@@ -85,7 +104,7 @@ public class FavActivity extends BaseActivity {
     }
 
     private void initArgument() {
-        if(getIntent()!=null){
+        if (getIntent() != null) {
             Intent intent = getIntent();
             mTest = (Test) intent.getSerializableExtra(FAV_KEY);
         }
@@ -112,9 +131,9 @@ public class FavActivity extends BaseActivity {
 
     private void showFav() {
         //回显此题是否被收藏
-        if(CacheHelper.getFav(mTest.getTestId() + "")==mTest.getTestId()){
+        if (CacheHelper.getFav(mTest.getTestId() + "") == mTest.getTestId()) {
             mFAB.setImageResource(R.mipmap.icon_fav_select);
-        }else{
+        } else {
             mFAB.setImageResource(R.mipmap.icon_fav);
         }
     }
@@ -155,7 +174,6 @@ public class FavActivity extends BaseActivity {
             }
         });
     }
-
 
     private void initSingleChoice() {
         if (mTest.getAnswerA() != null) {
@@ -218,6 +236,17 @@ public class FavActivity extends BaseActivity {
         }
     }
 
+    @Override
+    public String returnToolBarTitle() {
+        return getString(R.string.my_fav);
+    }
+
+    private void setAnswerItemEnabled(boolean enabled) {
+        for (int i = 0; i < mAnswerSelectLayout.getChildCount(); i++) {
+            mAnswerSelectLayout.getChildAt(i).setEnabled(enabled);
+        }
+    }
+
     private class AnswerItemClick implements View.OnClickListener {
 
         private AnswerItem answerItem;
@@ -231,38 +260,7 @@ public class FavActivity extends BaseActivity {
             answerItem.click();
             setAnswerItemEnabled(false);
             mRyAnswer.setVisibility(View.VISIBLE);
-            scrollToBottom(mMainLayout,mRootView.findViewById(R.id.ly_main));
-        }
-    }
-
-    public static void scrollToBottom(final ScrollView scroll, final View inner) {
-
-        Handler mHandler = new Handler();
-
-        mHandler.post(new Runnable() {
-            public void run() {
-                if (scroll == null || inner == null) {
-                    return;
-                }
-
-                int offset = inner.getMeasuredHeight() - scroll.getHeight();
-                if (offset < 0) {
-                    offset = 0;
-                }
-
-                scroll.smoothScrollTo(0, offset);
-            }
-        });
-    }
-
-    @Override
-    public String returnToolBarTitle() {
-        return getString(R.string.my_fav);
-    }
-
-    private void setAnswerItemEnabled(boolean enabled) {
-        for (int i = 0; i < mAnswerSelectLayout.getChildCount(); i++) {
-            mAnswerSelectLayout.getChildAt(i).setEnabled(enabled);
+            scrollToBottom(mMainLayout, mRootView.findViewById(R.id.ly_main));
         }
     }
 }

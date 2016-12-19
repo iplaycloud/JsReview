@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.cache;
 
 import android.content.Context;
@@ -14,22 +12,16 @@ import java.lang.ref.WeakReference;
  * Description：
  */
 public class ReadCacheAsyncTask<T> extends AsyncTask<String, Void, T> {
+
     private WeakReference<Context> mContext;
-
-    public interface OnReadCacheToDo<T> {
-        void preExecute();
-
-        void postExectue(T data);
-    }
-
     private OnReadCacheToDo<T> onReadCacheToDo;
-
-    public void setOnReadCacheToDo(OnReadCacheToDo<T> onReadCacheToDo) {
-        this.onReadCacheToDo = onReadCacheToDo;
-    }
 
     public ReadCacheAsyncTask(Context context) {
         mContext = new WeakReference<Context>(context);
+    }
+
+    public void setOnReadCacheToDo(OnReadCacheToDo<T> onReadCacheToDo) {
+        this.onReadCacheToDo = onReadCacheToDo;
     }
 
     @Override
@@ -59,5 +51,11 @@ public class ReadCacheAsyncTask<T> extends AsyncTask<String, Void, T> {
         if (onReadCacheToDo != null) {
             onReadCacheToDo.postExectue(data);
         }
+    }
+
+    public interface OnReadCacheToDo<T> {
+        void preExecute();
+
+        void postExectue(T data);
     }
 }

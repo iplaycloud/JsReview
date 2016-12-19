@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.test.model.bean;
 
 import cn.bmob.v3.BmobObject;
@@ -21,6 +20,7 @@ public class Test extends BmobObject {
     private String answerE;
     private String answerF;
     private String answerG;
+    private String explain;
 
     public String getExplain() {
         return explain;
@@ -29,9 +29,6 @@ public class Test extends BmobObject {
     public void setExplain(String explain) {
         this.explain = explain;
     }
-
-    private String explain;
-
 
     public Integer getTestId() {
         return testId;

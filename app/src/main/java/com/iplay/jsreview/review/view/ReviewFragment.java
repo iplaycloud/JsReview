@@ -1,19 +1,20 @@
-
 package com.iplay.jsreview.review.view;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.iplay.jsreview.R;
-import com.iplay.jsreview.review.view.adapter.ReviewListAdapterGV;
-import com.iplay.jsreview.review.model.bean.Point;
-import com.iplay.jsreview.review.model.bean.Unit;
+import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.cache.ReadCacheAsyncTask;
 import com.iplay.jsreview.commons.cache.SaveCacheAsyncTask;
-import com.iplay.jsreview.commons.view.LoadingLayout;
-import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.utils.ToastHelper;
+import com.iplay.jsreview.commons.view.LoadingLayout;
+import com.iplay.jsreview.review.model.bean.Point;
+import com.iplay.jsreview.review.model.bean.Unit;
+import com.iplay.jsreview.review.view.adapter.ReviewListAdapterGV;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,6 +35,14 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
     public static final String ARGUMENT_POINT_KEY = "argument_point_key";
 
     private ReviewListAdapterGV mReviewListAdapter;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        Bundle bundle = getArguments();
+
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
 
     @Override
     public View getRootView() {
@@ -79,9 +88,11 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
         query.findObjects(getContext(), new FindListener<Unit>() {
             @Override
             public void onSuccess(final List<Unit> unitList) {
+
                 //根据查询的所有单元，请求所有的知识点数据
                 requestPointByUnits(unitList);
             }
+
             @Override
             public void onError(int i, String s) {
                 toastError(mLoadingLayout, getContext());
@@ -121,9 +132,8 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
     }
 
     /**
-     *
      * @param pointList 包含所有知识点
-     * @param unitList 包含所有单元
+     * @param unitList  包含所有单元
      * @param listGruop 承载组织好 以String, List<Point> 形式的数据结构 String是单元名称，List<Point>是该单元对应的知识点。
      */
     private void packetAdapterData(List<Point> pointList, List<Unit> unitList, List<Map<String, List<Point>>> listGruop) {
@@ -153,7 +163,7 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
         if (loadingLayout.getState() == LoadingLayout.STATE_REFRESH) {
             loadingLayout.setLoadingLayout(LoadingLayout.NETWORK_ERROR);
         }
-        if(mPtrFrameLayout!=null&&mPtrFrameLayout.isRefreshing()){
+        if (mPtrFrameLayout != null && mPtrFrameLayout.isRefreshing()) {
             mPtrFrameLayout.refreshComplete();
         }
         ToastHelper.showString(context, context.getString(R.string.fail_put_to_refresh));
@@ -166,6 +176,7 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
      */
     private void readCache(String cacheKey) {
         ReadCacheAsyncTask<List<Map<String, List<Point>>>> readCache = new ReadCacheAsyncTask<>(getContext());
+
         readCache.setOnReadCacheToDo(new ReadCacheAsyncTask.OnReadCacheToDo<List<Map<String, List<Point>>>>() {
             @Override
             public void preExecute() {
@@ -183,7 +194,6 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
                     mPtrFrameLayout.setVisibility(View.VISIBLE);
                     mReviewListAdapter.setDatas(data);
                 }
-
             }
         });
 
@@ -193,7 +203,7 @@ public class ReviewFragment extends BasePutToRefreshFragment<ReviewListAdapterGV
     @Override
     public void onResume() {
         super.onResume();
-        if(mPtrFrameLayout!=null&&mPtrFrameLayout.isRefreshing()){
+        if (mPtrFrameLayout != null && mPtrFrameLayout.isRefreshing()) {
             mPtrFrameLayout.refreshComplete();
         }
     }

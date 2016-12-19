@@ -1,36 +1,34 @@
-
 package com.iplay.jsreview.main;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
-import android.util.TypedValue;
+import android.support.v7.app.AlertDialog;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.commons.utils.DoubleClickExitHelper;
+import com.iplay.jsreview.review.model.bean.Unit;
 import com.iplay.jsreview.review.view.AddPointActivity;
 import com.iplay.jsreview.review.view.ReviewFragment;
 import com.iplay.jsreview.review.view.SearchActivity;
-import com.iplay.jsreview.setting.model.bean.Suggest;
 import com.iplay.jsreview.setting.view.SettingFragment;
-import com.iplay.jsreview.setting.view.SuggestActivity;
 import com.iplay.jsreview.test.view.TestFragment;
 
 import java.util.ArrayList;
@@ -38,11 +36,11 @@ import java.util.List;
 
 import cn.bmob.v3.listener.SaveListener;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
+    protected TextView mCount;
     private DoubleClickExitHelper mDoubleClickExit;
     private FragmentTabHost mFragmentTabHost;
-    protected TextView mCount;
     private View mRootView;
 
     private ViewPager mViewPager;
@@ -57,10 +55,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     private ImageButton mImgTest;
     private ImageButton mImgSettings;
 
+    private Context mContext = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_main,null);
+        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_main, null);
         setContentView(mRootView);
 
         initToolBar();
@@ -69,8 +69,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         setStatusBarCompat();
     }
 
-    private void initView()
-    {
+    private void initView() {
         //测试栏目的题目统计TextView
         mDoubleClickExit = new DoubleClickExitHelper(this);
 
@@ -92,17 +91,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mFragments.add(mTab02);
         mFragments.add(mTab03);
 
-        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
-        {
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
-            public int getCount()
-            {
+            public int getCount() {
                 return mFragments.size();
             }
 
             @Override
-            public Fragment getItem(int arg0)
-            {
+            public Fragment getItem(int arg0) {
                 return mFragments.get(arg0);
             }
         };
@@ -111,39 +107,32 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         mImgReview.setImageResource(R.mipmap.icon_review_on);
     }
 
-    private void initEvent()
-    {
+    private void initEvent() {
         mTabReview.setOnClickListener(this);
         mTabTest.setOnClickListener(this);
         mTabSettings.setOnClickListener(this);
 
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
-        {
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
-            public void onPageSelected(int arg0)
-            {
+            public void onPageSelected(int arg0) {
                 int currentItem = mViewPager.getCurrentItem();
                 setTab(currentItem);
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2)
-            {
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
             }
 
             @Override
-            public void onPageScrollStateChanged(int arg0)
-            {
+            public void onPageScrollStateChanged(int arg0) {
             }
         });
     }
 
     @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.id_tab_review:
                 setSelect(0);
                 break;
@@ -159,18 +148,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
     }
 
-    private void setSelect(int i)
-    {
+    private void setSelect(int i) {
         setTab(i);
         mViewPager.setCurrentItem(i);
     }
 
-    private void setTab(int i)
-    {
+    private void setTab(int i) {
         resetImgs();
 
-        switch (i)
-        {
+        switch (i) {
             case 0:
                 mImgReview.setImageResource(R.mipmap.icon_review_on);
                 break;
@@ -183,8 +169,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         }
     }
 
-    private void resetImgs()
-    {
+    private void resetImgs() {
         mImgReview.setImageResource(R.mipmap.icon_review_off);
         mImgTest.setImageResource(R.mipmap.icon_test_off);
         mImgSettings.setImageResource(R.mipmap.icon_other_off);
@@ -208,6 +193,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.toolbar_r_0:
+                showAddUnitWindow();
+                break;
+
             case R.id.toolbar_r_1:
                 startActivity(new Intent(this, AddPointActivity.class));
                 break;
@@ -222,6 +211,47 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void showAddUnitWindow() {
+
+        final EditText et = new EditText(this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);  //先得到构造器
+        builder.setTitle("新建单元："); //设置标题
+        builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
+        builder.setView(et);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+                Toast.makeText(MainActivity.this, "确定" + et.getText(), Toast.LENGTH_SHORT).show();
+
+                Unit mUnit = new Unit();
+
+                mUnit.setName(et.getText().toString().trim());
+
+                mUnit.save(mContext, new SaveListener() {
+                    @Override
+                    public void onSuccess() {
+                        Toast.makeText(mContext, R.string.submit_success, Toast.LENGTH_SHORT).show();
+                        //finish();
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        Snackbar.make(mRootView, R.string.submit_failed, Snackbar.LENGTH_SHORT).show();
+                    }
+
+                });
+            }
+        });
+
+        builder.setNegativeButton("取消", null);
+        builder.create().show();
+    }
+
 
     /**
      * 监听返回--是否退出程序

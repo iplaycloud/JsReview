@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.test.view;
 
 import android.content.Context;
@@ -31,7 +30,7 @@ public class FavTestListAdatper extends MyBaseAdapter<Test> {
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
 
-        }else {
+        } else {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.tv_test_question.setText(test.getQuestion());
@@ -40,8 +39,8 @@ public class FavTestListAdatper extends MyBaseAdapter<Test> {
         return convertView;
     }
 
-    private class ViewHolder{
-        TextView tv_test_question,tv_create_time;
+    private class ViewHolder {
+        TextView tv_test_question, tv_create_time;
 
         public ViewHolder(View view) {
             tv_test_question = (TextView) view.findViewById(R.id.tv_test_question);

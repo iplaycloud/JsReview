@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2016. Vv <iplaycloud@gmail.com><http://www.v-sounds.com/>
   ~
   ~ This file is part of AndroidReview (Android面试复习)
@@ -48,7 +47,6 @@
     <color name="list_divider">#19000000</color><!--列表item 分割线-->
 
     <color name="ttt">#b16e09</color><!--App主色调-->
-
 
 
 </resources>

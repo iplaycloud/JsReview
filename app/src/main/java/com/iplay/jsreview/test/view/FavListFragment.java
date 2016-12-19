@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.test.view;
 
 import android.content.Intent;
@@ -13,10 +12,10 @@ import android.widget.ListView;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseFragment;
-import com.iplay.jsreview.test.model.bean.Test;
-import com.iplay.jsreview.review.view.FavActivity;
-import com.iplay.jsreview.commons.view.LoadingLayout;
 import com.iplay.jsreview.commons.cache.CacheHelper;
+import com.iplay.jsreview.commons.view.LoadingLayout;
+import com.iplay.jsreview.review.view.FavActivity;
+import com.iplay.jsreview.test.model.bean.Test;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -71,10 +70,19 @@ public class FavListFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent itent = new Intent(getContext(), FavActivity.class);
-                itent.putExtra(FavActivity.FAV_KEY,mData.get(position));
+                itent.putExtra(FavActivity.FAV_KEY, mData.get(position));
                 startActivity(itent);
             }
         });
+    }
+
+    private Test readTestCache(int testId) {
+        Serializable seri = CacheHelper.readObject(getContext(), CacheHelper.TEST + testId);
+        if (seri == null) {
+            return null;
+        } else {
+            return (Test) seri;
+        }
     }
 
     private class LoadFavTestAsyncTask extends AsyncTask<Void, Void, Void> {
@@ -105,22 +113,13 @@ public class FavListFragment extends BaseFragment {
             mAdapter = new FavTestListAdatper(getContext());
             mAdapter.setDatas(mData);
             mListView.setAdapter(mAdapter);
-            if(mData.size()!=0) {
+            if (mData.size() != 0) {
                 mLoadingLayout.setLoadingLayout(LoadingLayout.HIDE_LAYOUT);
                 mListView.setVisibility(View.VISIBLE);
-            }else{
+            } else {
                 mLoadingLayout.setLoadingLayout(LoadingLayout.NO_DATA_FAV);
                 mListView.setVisibility(View.GONE);
             }
-        }
-    }
-
-    private Test readTestCache(int testId) {
-        Serializable seri = CacheHelper.readObject(getContext(), CacheHelper.TEST + testId);
-        if (seri == null) {
-            return null;
-        } else {
-            return (Test) seri;
         }
     }
 

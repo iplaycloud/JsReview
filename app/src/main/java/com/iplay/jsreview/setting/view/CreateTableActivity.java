@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.os.Bundle;
@@ -11,9 +10,9 @@ import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.review.model.bean.Content;
 import com.iplay.jsreview.review.model.bean.Point;
+import com.iplay.jsreview.review.model.bean.Unit;
 import com.iplay.jsreview.setting.model.bean.Suggest;
 import com.iplay.jsreview.test.model.bean.Test;
-import com.iplay.jsreview.review.model.bean.Unit;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.CountListener;
@@ -23,6 +22,7 @@ public class CreateTableActivity extends BaseActivity {
     public static final int PB_STEP = 20;
     private TextView mBtCreateTable;
     private ProgressBar mProgressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,10 +127,10 @@ public class CreateTableActivity extends BaseActivity {
             @Override
             public void onFailure(int i, String s) {
                 //101代表表格未创建，官网可查 错误码含义http://docs.bmob.cn/errorcode/index.html?menukey=otherdoc&key=errorcode
-                if(i==101){
+                if (i == 101) {
                     stepComplete();
                     createTest(0);
-                }else {
+                } else {
                     Toast.makeText(CreateTableActivity.this, "获取Test题目数量失败", Toast.LENGTH_SHORT).show();
                 }
             }

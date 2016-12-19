@@ -6,24 +6,25 @@
     tools:context="com.iplay.jsreview.setting.view.CreateTableActivity">
 
     <include layout="@layout/include_toolbar" />
+
     <ProgressBar
         android:id="@+id/progressbar"
-        android:layout_marginTop="20dp"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:max="120"
-        style="?android:attr/progressBarStyleHorizontal"
-        />
+        android:layout_marginTop="20dp"
+        android:max="120" />
 
     <LinearLayout
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
         <TextView
             android:id="@+id/bt_create"
             android:layout_width="wrap_content"
@@ -37,20 +38,22 @@
             android:text="@string/action_create"
             android:textColor="@color/bt_next_text"
             android:textSize="16sp" />
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray"
+            android:layout_marginTop="20dp"
             android:text="点击执行，即将会为你的所有Bmob数据表插入一条默认数据，如果你还木有创建表格，那么在插入数据的同时会为你自动建表。"
-            android:textSize="14sp"/>
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray"
+            android:layout_marginTop="20dp"
             android:text="注意：别忘了在AppContext中替换上你的Bmob 应用ApplicationId哦。"
-            android:textSize="14sp"/>
+            android:textColor="@color/gray"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

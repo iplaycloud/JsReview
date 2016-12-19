@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.test.view;
 
 import android.app.Activity;
@@ -16,17 +15,16 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseFragment;
-import com.iplay.jsreview.test.model.bean.Test;
+import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.cache.ReadCacheAsyncTask;
 import com.iplay.jsreview.commons.cache.SaveCacheAsyncTask;
-import com.iplay.jsreview.main.MainActivity;
-import com.iplay.jsreview.test.view.view.AnswerItem;
-import com.iplay.jsreview.commons.view.LoadingLayout;
-import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.utils.TDevice;
+import com.iplay.jsreview.commons.view.LoadingLayout;
+import com.iplay.jsreview.main.MainActivity;
+import com.iplay.jsreview.test.model.bean.Test;
+import com.iplay.jsreview.test.view.view.AnswerItem;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -43,13 +41,12 @@ import cn.bmob.v3.listener.FindListener;
  * Description：
  */
 public class TestFragment extends BaseFragment {
-    //toolbar 已做题目数目统计
-    private static int sTestCount = 0;
     //单选题
     public static final int TYPE_SINGLE_ANSWER = 1;
     //简答题
     public static final int TYPE_QUESTIONS_AND_ANSWERS = 2;
-
+    //toolbar 已做题目数目统计
+    private static int sTestCount = 0;
     //根布局
     private View mRootView;
     private MainActivity mParentActivity;
@@ -76,6 +73,25 @@ public class TestFragment extends BaseFragment {
     //随机list 每次根据服务器总体数量生成 随机顺序的list 每次请求题目的时候取出里面的值。（做到随机而不重复题目）
     private List<Integer> mRandomList = new ArrayList<>();
 
+    public static void scrollToBottom(final ScrollView scroll, final View inner) {
+
+        Handler mHandler = new Handler();
+
+        mHandler.post(new Runnable() {
+            public void run() {
+                if (scroll == null || inner == null) {
+                    return;
+                }
+
+                int offset = inner.getMeasuredHeight() - scroll.getHeight();
+                if (offset < 0) {
+                    offset = 0;
+                }
+
+                scroll.smoothScrollTo(0, offset);
+            }
+        });
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -347,7 +363,7 @@ public class TestFragment extends BaseFragment {
     }
 
     private void initSingleChoice() {
-        if (mTest.getAnswerA() != null&& !TextUtils.isEmpty(mTest.getAnswerA())) {
+        if (mTest.getAnswerA() != null && !TextUtils.isEmpty(mTest.getAnswerA())) {
             //新建答案选项
             AnswerItem answerA = new AnswerItem(getContext());
             answerA.setChoiceText("A");
@@ -365,7 +381,7 @@ public class TestFragment extends BaseFragment {
             answerB.setOnClickListener(new AnswerItemClick(answerB));
             mAnswerSelectLayout.addView(answerB);
         }
-        if (mTest.getAnswerC() != null&& !TextUtils.isEmpty(mTest.getAnswerC())) {
+        if (mTest.getAnswerC() != null && !TextUtils.isEmpty(mTest.getAnswerC())) {
             AnswerItem answerC = new AnswerItem(getContext());
             answerC.setChoiceText("C");
             answerC.setChoiceContent(mTest.getAnswerC());
@@ -373,7 +389,7 @@ public class TestFragment extends BaseFragment {
             answerC.setOnClickListener(new AnswerItemClick(answerC));
             mAnswerSelectLayout.addView(answerC);
         }
-        if (mTest.getAnswerD() != null&& !TextUtils.isEmpty(mTest.getAnswerD())) {
+        if (mTest.getAnswerD() != null && !TextUtils.isEmpty(mTest.getAnswerD())) {
             AnswerItem answerD = new AnswerItem(getContext());
             answerD.setChoiceText("D");
             answerD.setChoiceContent(mTest.getAnswerD());
@@ -381,7 +397,7 @@ public class TestFragment extends BaseFragment {
             answerD.setOnClickListener(new AnswerItemClick(answerD));
             mAnswerSelectLayout.addView(answerD);
         }
-        if (mTest.getAnswerE() != null&& !TextUtils.isEmpty(mTest.getAnswerE())) {
+        if (mTest.getAnswerE() != null && !TextUtils.isEmpty(mTest.getAnswerE())) {
             AnswerItem answerE = new AnswerItem(getContext());
             answerE.setChoiceText("E");
             answerE.setChoiceContent(mTest.getAnswerE());
@@ -389,7 +405,7 @@ public class TestFragment extends BaseFragment {
             answerE.setOnClickListener(new AnswerItemClick(answerE));
             mAnswerSelectLayout.addView(answerE);
         }
-        if (mTest.getAnswerF() != null&& !TextUtils.isEmpty(mTest.getAnswerF())) {
+        if (mTest.getAnswerF() != null && !TextUtils.isEmpty(mTest.getAnswerF())) {
             AnswerItem answerF = new AnswerItem(getContext());
             answerF.setChoiceText("F");
             answerF.setChoiceContent(mTest.getAnswerF());
@@ -397,7 +413,7 @@ public class TestFragment extends BaseFragment {
             answerF.setOnClickListener(new AnswerItemClick(answerF));
             mAnswerSelectLayout.addView(answerF);
         }
-        if (mTest.getAnswerG() != null&& !TextUtils.isEmpty(mTest.getAnswerG())) {
+        if (mTest.getAnswerG() != null && !TextUtils.isEmpty(mTest.getAnswerG())) {
             AnswerItem answerG = new AnswerItem(getContext());
             answerG.setChoiceText("G");
             answerG.setChoiceContent(mTest.getAnswerG());
@@ -455,25 +471,5 @@ public class TestFragment extends BaseFragment {
             mRyAnswer.setVisibility(View.VISIBLE);
             scrollToBottom(mMainLayout, mRootView.findViewById(R.id.ly_main));
         }
-    }
-
-    public static void scrollToBottom(final ScrollView scroll, final View inner) {
-
-        Handler mHandler = new Handler();
-
-        mHandler.post(new Runnable() {
-            public void run() {
-                if (scroll == null || inner == null) {
-                    return;
-                }
-
-                int offset = inner.getMeasuredHeight() - scroll.getHeight();
-                if (offset < 0) {
-                    offset = 0;
-                }
-
-                scroll.smoothScrollTo(0, offset);
-            }
-        });
     }
 }

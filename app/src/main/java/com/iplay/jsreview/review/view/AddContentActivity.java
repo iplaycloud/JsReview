@@ -8,16 +8,12 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.review.model.bean.Content;
 import com.iplay.jsreview.review.model.bean.Point;
-import com.iplay.jsreview.setting.model.bean.Suggest;
-import com.iplay.jsreview.setting.view.SuggestActivity;
 
 import cn.bmob.v3.listener.SaveListener;
 
@@ -27,10 +23,10 @@ public class AddContentActivity extends BaseActivity {
 
     private Point mPoint;
 
-    private TextInputLayout mTiTitle,mTiContent;
+    private TextInputLayout mTiTitle, mTiContent;
 
     //防止多次提交数据
-    private boolean isPosting=false;
+    private boolean isPosting = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +46,8 @@ public class AddContentActivity extends BaseActivity {
 
     public void initArguments() {
         Intent intent = getIntent();
-        if(intent != null)
-        mPoint = (Point) intent.getSerializableExtra("point");
+        if (intent != null)
+            mPoint = (Point) intent.getSerializableExtra("point");
     }
 
     @Override
@@ -74,9 +70,9 @@ public class AddContentActivity extends BaseActivity {
 
                 String title = mTiTitle.getEditText().getText().toString();
                 String content = mTiContent.getEditText().getText().toString();
-                if(TextUtils.isEmpty(title) || TextUtils.isEmpty(content)){
+                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(content)) {
                     Snackbar.make(mRootView, R.string.dont_no_text, Snackbar.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Content mContent = new Content();
                     mContent.setTitle(title);
                     mContent.setContent(content);
@@ -86,7 +82,7 @@ public class AddContentActivity extends BaseActivity {
                     mContent.setPoint(mPoint);
                     mContent.setSmall(content.substring(0, 20));
 
-                    if(!isPosting) {
+                    if (!isPosting) {
                         isPosting = true;
                         mContent.save(AddContentActivity.this, new SaveListener() {
                             @Override
@@ -102,7 +98,7 @@ public class AddContentActivity extends BaseActivity {
                                 Snackbar.make(mRootView, R.string.submit_failed, Snackbar.LENGTH_SHORT).show();
                             }
                         });
-                    }else{
+                    } else {
                         Snackbar.make(mRootView, R.string.dont_repeat, Snackbar.LENGTH_SHORT).show();
                     }
                 }

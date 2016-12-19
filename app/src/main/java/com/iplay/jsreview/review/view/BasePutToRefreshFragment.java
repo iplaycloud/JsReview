@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view;
 
 import android.os.Bundle;
@@ -12,11 +11,11 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.orhanobut.logger.Logger;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseFragment;
-import com.iplay.jsreview.commons.view.LoadingLayout;
 import com.iplay.jsreview.commons.utils.TDevice;
+import com.iplay.jsreview.commons.view.LoadingLayout;
+import com.orhanobut.logger.Logger;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -100,6 +99,7 @@ public abstract class BasePutToRefreshFragment<T extends BaseAdapter> extends Ba
 
 
     }
+
     //创建 listView loadingView 并加入事件处理
     private void creatBaseViews() {
         initDoRefreshView();
@@ -117,7 +117,7 @@ public abstract class BasePutToRefreshFragment<T extends BaseAdapter> extends Ba
                 switch (scrollState) {
                     case AbsListView.OnScrollListener.SCROLL_STATE_IDLE:
                         if (isItemfullScreen) {
-                            if(sPutUpState == PULL_UP_STATE_NONE &&isLoadMore) {
+                            if (sPutUpState == PULL_UP_STATE_NONE && isLoadMore) {
                                 Logger.e("list is load more data");
                                 pullUpLoadData();
                             }
@@ -131,9 +131,9 @@ public abstract class BasePutToRefreshFragment<T extends BaseAdapter> extends Ba
                 //firstVisibleItem -屏幕上显示的第一个item
                 //visibleItemCount -屏幕上一共显示item的数目
                 //totalItemCount -目前listview 一共有多少个itme
-                if(totalItemCount>visibleItemCount){
+                if (totalItemCount > visibleItemCount) {
                     isItemfullScreen = true;
-                }else{
+                } else {
                     isItemfullScreen = false;
                 }
 

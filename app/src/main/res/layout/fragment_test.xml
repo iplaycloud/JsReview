@@ -29,12 +29,12 @@
             android:textSize="17dp" />
 
         <TextView
-            android:layout_marginTop="10dp"
             android:id="@+id/bt_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_label_tip"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bt_bg"
             android:clickable="true"
             android:padding="5dp"

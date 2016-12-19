@@ -15,7 +15,7 @@ public class WebViewHelper {
 
     public static final String LinkCss = "<link rel=\"stylesheet\" type=\"text/css\" href=\"file:///android_asset/css/common.css\">";
     public static final String LinkJS = "<script type=\"text/javascript\" src=\"file:///android_asset/js/common.js\"></script>";
-    public static final String Function_RemoveImageAttribute="<script> javascript:removeImageAttribute()</script>";
+    public static final String Function_RemoveImageAttribute = "<script> javascript:removeImageAttribute()</script>";
 
     public static void initWebViewSettings(WebView webView) {
         WebSettings settings = webView.getSettings();
@@ -32,7 +32,7 @@ public class WebViewHelper {
 
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); //支持内容重新布局
 
-        webView.setWebViewClient(new WebViewClient(){
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 //使超链接失效

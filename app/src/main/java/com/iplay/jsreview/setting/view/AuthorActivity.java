@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.os.Bundle;

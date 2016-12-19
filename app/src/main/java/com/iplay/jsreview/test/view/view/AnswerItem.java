@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.test.view.view;
 
 import android.content.Context;
@@ -40,7 +39,7 @@ public class AnswerItem extends LinearLayout {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.test_answer_item, null);
         mChoice = (TextView) view.findViewById(R.id.tv_choice);
         mChoiceContent = (TextView) view.findViewById(R.id.tv_choice_content);
-        addView(view,lp);
+        addView(view, lp);
     }
 
     public void setChoiceText(String str) {
@@ -60,7 +59,7 @@ public class AnswerItem extends LinearLayout {
         if (mChoice.getText().toString().equals(mTest.getAnswer())) {
             mChoice.setBackgroundResource(R.mipmap.icon_true);
             mChoice.setText("");
-        } else{
+        } else {
             mChoice.setBackgroundResource(R.mipmap.icon_false);
             mChoice.setText("");
         }

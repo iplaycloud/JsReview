@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.content.Intent;
@@ -17,9 +16,9 @@ import com.iplay.jsreview.review.view.ContentListActivity;
  * Mail：iplaycloud@gmail.com
  * Description：
  */
-public class SettingFragment extends BaseFragment{
+public class SettingFragment extends BaseFragment {
     private View mRootView;
-    private RelativeLayout mBtSuggest,mBtUpdate,mBtAbout,mBtFav,mBtSettingCache,mBtCreateTable;
+    private RelativeLayout mBtSuggest, mBtUpdate, mBtAbout, mBtFav, mBtSettingCache, mBtCreateTable;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,12 +54,12 @@ public class SettingFragment extends BaseFragment{
 
     }
 
-    private class BtClickListener implements View.OnClickListener{
+    private class BtClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.bt_cache:
                     intent.setClass(getContext(), SettingCacheActivity.class);
                     startActivity(intent);

@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.os.Bundle;
@@ -11,11 +10,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sevenheaven.iosswitch.ShSwitchView;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.commons.base.system.Settings;
 import com.iplay.jsreview.commons.view.RangeSliderViewEx;
+import com.sevenheaven.iosswitch.ShSwitchView;
 
 public class SettingCacheActivity extends BaseActivity {
 
@@ -108,7 +107,7 @@ public class SettingCacheActivity extends BaseActivity {
                     mEtWifi.setText(mWifiMin + "");
                     mEtWifi.setVisibility(View.VISIBLE);
                     mEtWifi.requestFocus();
-                    mLableWifi.setText(MINUTE+Lable);
+                    mLableWifi.setText(MINUTE + Lable);
                 } else {
                     mEtWifi.setVisibility(View.GONE);
                     mWifiMin = (index + 1) * MINUTE_STEP;
@@ -126,7 +125,7 @@ public class SettingCacheActivity extends BaseActivity {
                     mEtOther.setText(mOtherDay + "");
                     mEtOther.setVisibility(View.VISIBLE);
                     mEtOther.requestFocus();
-                    mLableOther.setText(DAY+Lable);
+                    mLableOther.setText(DAY + Lable);
                 } else {
                     mEtOther.setVisibility(View.GONE);
                     mOtherDay = (index + 1) * DAY_STEP;

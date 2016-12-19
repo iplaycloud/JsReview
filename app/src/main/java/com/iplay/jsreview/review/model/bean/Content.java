@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.model.bean;
 
 import cn.bmob.v3.BmobObject;

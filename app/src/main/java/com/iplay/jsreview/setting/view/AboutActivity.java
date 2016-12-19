@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.content.Intent;
@@ -11,7 +10,7 @@ import com.iplay.jsreview.commons.base.BaseActivity;
 
 public class AboutActivity extends BaseActivity {
 
-    private TextView mBtAuthor,mBtUpdate;
+    private TextView mBtAuthor, mBtUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,7 @@ public class AboutActivity extends BaseActivity {
         mBtUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AboutActivity.this,VersionNoteActivity.class);
+                Intent intent = new Intent(AboutActivity.this, VersionNoteActivity.class);
                 startActivity(intent);
             }
         });

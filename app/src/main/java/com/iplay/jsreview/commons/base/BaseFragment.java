@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.base;
 
 import android.app.Activity;

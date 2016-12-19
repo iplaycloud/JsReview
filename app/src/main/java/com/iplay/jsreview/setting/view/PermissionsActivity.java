@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.setting.view;
 
 import android.app.Activity;
@@ -43,14 +42,15 @@ public class PermissionsActivity extends AppCompatActivity {
         ActivityCompat.startActivityForResult(activity, intent, requestCode, null);
     }
 
-    @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getIntent() == null || !getIntent().hasExtra(EXTRA_PERMISSIONS)) {
             throw new RuntimeException("PermissionsActivity需要使用静态startActivityForResult方法启动!");
         }
         View view = new View(this);
         view.setBackgroundColor(getResources().getColor(R.color.theme_color_level2));
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         view.setLayoutParams(lp);
         setContentView(view);
 
@@ -58,7 +58,8 @@ public class PermissionsActivity extends AppCompatActivity {
         isRequireCheck = true;
     }
 
-    @Override protected void onResume() {
+    @Override
+    protected void onResume() {
         super.onResume();
         if (isRequireCheck) {
             String[] permissions = getPermissions();
@@ -126,14 +127,16 @@ public class PermissionsActivity extends AppCompatActivity {
 
         // 拒绝, 退出应用
         builder.setNegativeButton(R.string.quit, new DialogInterface.OnClickListener() {
-            @Override public void onClick(DialogInterface dialog, int which) {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 setResult(PERMISSIONS_DENIED);
                 finish();
             }
         });
 
         builder.setPositiveButton(R.string.settings, new DialogInterface.OnClickListener() {
-            @Override public void onClick(DialogInterface dialog, int which) {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 startAppSettings();
             }
         });

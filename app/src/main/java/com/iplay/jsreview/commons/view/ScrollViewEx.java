@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.commons.view;
 
 import android.content.Context;
@@ -14,8 +13,8 @@ import android.widget.ScrollView;
  * Description：
  */
 public class ScrollViewEx extends ScrollView {
-    private GestureDetector mGestureDetector;
     View.OnTouchListener mGestureListener;
+    private GestureDetector mGestureDetector;
 
     public ScrollViewEx(Context context, AttributeSet attrs) {
         super(context, attrs);

@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.commons.utils;
 
 import android.annotation.TargetApi;
@@ -26,7 +25,6 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
-
 import com.iplay.jsreview.commons.base.BaseApplication;
 import com.iplay.jsreview.commons.base.system.AppContext;
 
@@ -51,13 +49,12 @@ public class TDevice {
     public static boolean GTE_HC;
     public static boolean GTE_ICS;
     public static boolean PRE_HC;
+    public static float displayDensity = 0.0F;
     private static Boolean _hasBigScreen = null;
     private static Boolean _hasCamera = null;
     private static Boolean _isTablet = null;
     private static Integer _loadFactor = null;
-
     private static int _pageSize = -1;
-    public static float displayDensity = 0.0F;
 
     static {
         GTE_ICS = Build.VERSION.SDK_INT >= 14;

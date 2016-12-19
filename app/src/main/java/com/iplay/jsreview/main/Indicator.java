@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.main;
 
 
@@ -22,7 +21,6 @@ public enum Indicator {
 
     SETTING(2, R.string.main_tab_name_setting, R.drawable.tab_icon_other,
             SettingFragment.class);
-
 
 
     private int idx;

@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.review.view.adapter;
 
 import android.content.Context;

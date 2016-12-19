@@ -3,10 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <com.iplay.jsreview.commons.view.LoadingLayout
         android:id="@+id/ly_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"

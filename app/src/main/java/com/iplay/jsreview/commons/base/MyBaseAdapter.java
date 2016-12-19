@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.base;
 
 import android.content.Context;
@@ -50,7 +48,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void setDatas(List<T> datas){
+    public void setDatas(List<T> datas) {
         this.mDatas = datas;
     }
 

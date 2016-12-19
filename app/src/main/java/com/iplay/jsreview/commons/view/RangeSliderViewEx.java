@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.commons.view;
 
 import android.animation.Animator;
@@ -169,6 +168,28 @@ public class RangeSliderViewEx extends View {
             }
         });
         currentIndex = 0;
+    }
+
+    /**
+     * Helper method to convert pixel to dp
+     *
+     * @param context
+     * @param px
+     * @return
+     */
+    static int pxToDp(final Context context, final float px) {
+        return (int) (px / context.getResources().getDisplayMetrics().density);
+    }
+
+    /**
+     * Helper method to convert dp to pixel
+     *
+     * @param context
+     * @param dp
+     * @return
+     */
+    static int dpToPx(final Context context, final float dp) {
+        return (int) (dp * context.getResources().getDisplayMetrics().density);
     }
 
     private void updateRadius(int height) {
@@ -551,7 +572,31 @@ public class RangeSliderViewEx extends View {
         this.currentIndex = ss.saveIndex;
     }
 
+    /**
+     * Interface to keep track sliding position
+     */
+    public interface OnSlideListener {
+
+        /**
+         * Notify when slider change to new index position
+         *
+         * @param index The index value of range count [0, rangeCount - 1]
+         */
+        void onSlide(int index);
+    }
+
     static class SavedState extends BaseSavedState {
+        //required field that makes Parcelables from a Parcel
+        public static final Parcelable.Creator<SavedState> CREATOR =
+                new Parcelable.Creator<SavedState>() {
+                    public SavedState createFromParcel(Parcel in) {
+                        return new SavedState(in);
+                    }
+
+                    public SavedState[] newArray(int size) {
+                        return new SavedState[size];
+                    }
+                };
         int saveIndex;
 
         SavedState(Parcelable superState) {
@@ -568,51 +613,6 @@ public class RangeSliderViewEx extends View {
             super.writeToParcel(out, flags);
             out.writeInt(this.saveIndex);
         }
-
-        //required field that makes Parcelables from a Parcel
-        public static final Parcelable.Creator<SavedState> CREATOR =
-                new Parcelable.Creator<SavedState>() {
-                    public SavedState createFromParcel(Parcel in) {
-                        return new SavedState(in);
-                    }
-
-                    public SavedState[] newArray(int size) {
-                        return new SavedState[size];
-                    }
-                };
-    }
-
-    /**
-     * Helper method to convert pixel to dp
-     * @param context
-     * @param px
-     * @return
-     */
-    static int pxToDp(final Context context, final float px) {
-        return (int)(px / context.getResources().getDisplayMetrics().density);
-    }
-
-    /**
-     * Helper method to convert dp to pixel
-     * @param context
-     * @param dp
-     * @return
-     */
-    static int dpToPx(final Context context, final float dp) {
-        return (int)(dp * context.getResources().getDisplayMetrics().density);
-    }
-
-    /**
-     * Interface to keep track sliding position
-     */
-    public interface OnSlideListener {
-
-        /**
-         * Notify when slider change to new index position
-         *
-         * @param index The index value of range count [0, rangeCount - 1]
-         */
-        void onSlide(int index);
     }
 
 

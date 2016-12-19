@@ -1,4 +1,3 @@
-
 package com.iplay.jsreview.commons.utils;
 
 import android.app.Activity;
@@ -22,6 +21,16 @@ public class DoubleClickExitHelper {
     private boolean isOnKeyBacking;
     private Handler mHandler;
     private Toast mBackToast;
+    private Runnable onBackTimeRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            isOnKeyBacking = false;
+            if (mBackToast != null) {
+                mBackToast.cancel();
+            }
+        }
+    };
 
     public DoubleClickExitHelper(Activity activity) {
         mActivity = activity;
@@ -30,14 +39,14 @@ public class DoubleClickExitHelper {
 
     /**
      * Activity onKeyDown事件
-     * */
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode != KeyEvent.KEYCODE_BACK) {
+        if (keyCode != KeyEvent.KEYCODE_BACK) {
             return false;
         }
-        if(isOnKeyBacking) {
+        if (isOnKeyBacking) {
             mHandler.removeCallbacks(onBackTimeRunnable);
-            if(mBackToast != null){
+            if (mBackToast != null) {
                 mBackToast.cancel();
             }
             // �?�?
@@ -45,7 +54,7 @@ public class DoubleClickExitHelper {
             return true;
         } else {
             isOnKeyBacking = true;
-            if(mBackToast == null) {
+            if (mBackToast == null) {
                 mBackToast = Toast.makeText(mActivity, R.string.tip_double_click_exit, Toast.LENGTH_SHORT);
             }
             mBackToast.show();
@@ -53,15 +62,4 @@ public class DoubleClickExitHelper {
             return true;
         }
     }
-
-    private Runnable onBackTimeRunnable = new Runnable() {
-
-        @Override
-        public void run() {
-            isOnKeyBacking = false;
-            if(mBackToast != null){
-                mBackToast.cancel();
-            }
-        }
-    };
 }

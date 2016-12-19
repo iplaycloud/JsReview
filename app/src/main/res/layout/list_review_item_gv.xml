@@ -6,11 +6,11 @@
 
     <TextView
         android:id="@+id/tv_unit"
-        android:text="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/theme_color_level2"
         android:padding="5dp"
+        android:text="text"
         android:textColor="@color/black"
         android:textSize="15sp" />
 

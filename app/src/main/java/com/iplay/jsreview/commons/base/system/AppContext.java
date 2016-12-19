@@ -20,10 +20,11 @@
 package com.iplay.jsreview.commons.base.system;
 
 
-import com.orhanobut.logger.Logger;
 import com.iplay.jsreview.commons.base.BaseApplication;
+import com.orhanobut.logger.Logger;
 
 import cn.bmob.v3.Bmob;
+
 /**
  * Author : iplay on 2015/7/20 20:51
  * Mail：iplaycloud@gmail.com
@@ -31,22 +32,8 @@ import cn.bmob.v3.Bmob;
  */
 public class AppContext extends BaseApplication {
 
-    private static AppContext instance;
-
     private static final String ApplicationID = "fe9c961af197bda25ff5702844b3feb7";
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        instance = this;
-        Bmob.initialize(this, ApplicationID);
-        //初始化Log系统
-        Logger.init("MyDemo")               // default PRETTYLOGGER or use just init()
-              .setMethodCount(1)            // default 2
-              .hideThreadInfo();           // default shown
-        //异常捕获收集
-        //CrashWoodpecker.fly().to(this);
-    }
+    private static AppContext instance;
 
     /**
      * 获得当前app运行的AppContext
@@ -55,6 +42,19 @@ public class AppContext extends BaseApplication {
      */
     public static AppContext getInstance() {
         return instance;
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        instance = this;
+        Bmob.initialize(this, ApplicationID);
+        //初始化Log系统
+        Logger.init("MyDemo")               // default PRETTYLOGGER or use just init()
+                .setMethodCount(1)            // default 2
+                .hideThreadInfo();           // default shown
+        //异常捕获收集
+        //CrashWoodpecker.fly().to(this);
     }
 
 

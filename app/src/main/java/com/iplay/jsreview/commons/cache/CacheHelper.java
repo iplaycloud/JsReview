@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.cache;
 
 import android.content.Context;
@@ -25,17 +23,15 @@ import java.io.Serializable;
  * Description：
  */
 public class CacheHelper {
-    // wifi缓存时间为10分钟
-    private static long wifi_cache_time = 10 * 60 * 1000;
-    // 其他网络环境为48小时
-    private static long other_cache_time = 2 * 24 * 60 * 60 * 1000;
-
     public final static String FAV = "fav.pref";
     public final static String GROUP_LIST_CACHE_KEY = "grup_list";
     public final static String CONTENT_LIST_CACHE_KEY = "content_list_";
     public final static String CONTENT_CACHE_KEY = "content_";
     public final static String TEST = "test_";
-
+    // wifi缓存时间为10分钟
+    private static long wifi_cache_time = 10 * 60 * 1000;
+    // 其他网络环境为48小时
+    private static long other_cache_time = 2 * 24 * 60 * 60 * 1000;
 
     public static SharedPreferences getPreferences(String prefName) {
         return AppContext.getInstance().getSharedPreferences(prefName, Context.MODE_PRIVATE);
@@ -165,15 +161,15 @@ public class CacheHelper {
         long existTime = System.currentTimeMillis() - data.lastModified();
         boolean failure = false;
         if (TDevice.getNetworkType() == TDevice.NETTYPE_WIFI) {
-            failure = existTime > Settings.getInt(Settings.CACHE_OVERTIME_WIFI,30) * 60 * 1000 ? true : false;
+            failure = existTime > Settings.getInt(Settings.CACHE_OVERTIME_WIFI, 30) * 60 * 1000 ? true : false;
         } else {
-            failure = existTime > Settings.getInt(Settings.CACHE_OVERTIME_OTHER,2) * 24 * 60 * 60 * 1000 ? true : false;
+            failure = existTime > Settings.getInt(Settings.CACHE_OVERTIME_OTHER, 2) * 24 * 60 * 60 * 1000 ? true : false;
         }
         return failure;
     }
 
     public static boolean isOpenCacheOverTime() {
-        return Settings.getBoolean(Settings.CACHE_OVERTIME,false);
+        return Settings.getBoolean(Settings.CACHE_OVERTIME, false);
     }
 
 }

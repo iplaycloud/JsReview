@@ -1,5 +1,3 @@
-
-
 package com.iplay.jsreview.commons.utils;
 
 import android.content.Context;
