@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.commons.utils.DoubleClickExitHelper;
+import com.iplay.jsreview.review.view.AddPointActivity;
 import com.iplay.jsreview.review.view.ReviewFragment;
 import com.iplay.jsreview.review.view.SearchActivity;
 import com.iplay.jsreview.setting.model.bean.Suggest;
@@ -207,13 +208,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_add:
-
+            case R.id.toolbar_r_1:
+                startActivity(new Intent(this, AddPointActivity.class));
                 break;
 
             case R.id.action_search:
-                Intent intent = new Intent(this, SearchActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, SearchActivity.class));
                 break;
 
             default:

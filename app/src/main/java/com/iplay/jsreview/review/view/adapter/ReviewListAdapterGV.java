@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.MyBaseAdapter;
 import com.iplay.jsreview.review.model.bean.Point;
-import com.iplay.jsreview.review.view.ListActivity;
+import com.iplay.jsreview.review.view.ContentListActivity;
 import com.iplay.jsreview.review.view.ReviewFragment;
 
 import java.util.ArrayList;
@@ -75,9 +75,9 @@ public class ReviewListAdapterGV extends MyBaseAdapter<Map<String, List<Point>>>
     }
 
     private void startContentList(Point point) {
-        Intent intent = new Intent(mContext, ListActivity.class);
+        Intent intent = new Intent(mContext, ContentListActivity.class);
         intent.putExtra(ReviewFragment.ARGUMENT_POINT_KEY, point);
-        intent.putExtra(ListActivity.CONTENT_TYPE_KEY, ListActivity.LIST_TYPE_REVIEW_CONTENT);
+        intent.putExtra(ContentListActivity.CONTENT_TYPE_KEY, ContentListActivity.LIST_TYPE_REVIEW_CONTENT);
         mContext.startActivity(intent);
     }
 

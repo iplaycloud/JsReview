@@ -153,7 +153,7 @@ public class DetailActivity extends BaseActivity {
     private void initArguments() {
         Intent intent = getIntent();
         if (intent != null) {
-            mContent = (Content) intent.getSerializableExtra(ReviewContentListFragment.ARGUMENT_CONTEN_KEY);
+            mContent = (Content) intent.getSerializableExtra(ContentListFragment.ARGUMENT_CONTEN_KEY);
             mPonitName = mContent.getPoint().getName();
         }
 

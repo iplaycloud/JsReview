@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseFragment;
-import com.iplay.jsreview.review.view.ListActivity;
+import com.iplay.jsreview.review.view.ContentListActivity;
 
 /**
  * Author : iplay on .
@@ -76,8 +76,8 @@ public class SettingFragment extends BaseFragment{
                     startActivity(intent);
                     break;
                 case R.id.bt_my_fav:
-                    intent.setClass(getContext(), ListActivity.class);
-                    intent.putExtra(ListActivity.CONTENT_TYPE_KEY, ListActivity.LIST_TYPE_FAV_TEST);
+                    intent.setClass(getContext(), ContentListActivity.class);
+                    intent.putExtra(ContentListActivity.CONTENT_TYPE_KEY, ContentListActivity.LIST_TYPE_FAV_TEST);
                     startActivity(intent);
                     break;
                 case R.id.bt_create_table:
