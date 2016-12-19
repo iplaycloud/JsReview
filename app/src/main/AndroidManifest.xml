@@ -39,7 +39,8 @@
         <activity android:name=".setting.view.VersionNoteActivity" />
         <activity android:name=".review.view.SearchActivity" />
         <activity android:name=".review.view.AddContentActivity" />
-        <activity android:name=".review.view.AddPointActivity"></activity>
+        <activity android:name=".review.view.AddPointActivity" />
+        <activity android:name=".test.view.AddTestActivity"></activity>
     </application>
 
 </manifest>

@@ -41,6 +41,7 @@ import cn.bmob.v3.listener.FindListener;
  * Description：
  */
 public class TestFragment extends BaseFragment {
+
     //单选题
     public static final int TYPE_SINGLE_ANSWER = 1;
     //简答题

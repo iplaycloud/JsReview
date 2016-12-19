@@ -18,7 +18,7 @@
     <string name="label_answer">答案：</string>
     <string name="bt_answer">答案</string>
     <string name="bt_next">下一题</string>
-    <string name="nong_test">(。﹏。*) \n题库已经没有题目了</string>
+    <string name="nong_test">题库已经没有题目了</string>
     <string name="reset">再做一遍</string>
     <string name="dont_no_text">Sorry,不能提交空白信息T_T</string>
     <string name="thx">非常感谢您的建议，我会做得更好</string>

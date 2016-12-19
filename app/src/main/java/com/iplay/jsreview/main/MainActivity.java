@@ -29,6 +29,7 @@ import com.iplay.jsreview.review.view.AddPointActivity;
 import com.iplay.jsreview.review.view.ReviewFragment;
 import com.iplay.jsreview.review.view.SearchActivity;
 import com.iplay.jsreview.setting.view.SettingFragment;
+import com.iplay.jsreview.test.view.AddTestActivity;
 import com.iplay.jsreview.test.view.TestFragment;
 
 import java.util.ArrayList;
@@ -199,6 +200,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
             case R.id.toolbar_r_1:
                 startActivity(new Intent(this, AddPointActivity.class));
+                break;
+            case R.id.toolbar_r_2:
+                startActivity(new Intent(this, AddTestActivity.class));
                 break;
 
             case R.id.action_search:
