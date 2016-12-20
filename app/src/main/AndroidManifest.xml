@@ -37,7 +37,7 @@
         <activity android:name=".setting.view.SettingCacheActivity" />
         <activity android:name=".setting.view.CreateTableActivity" />
         <activity android:name=".setting.view.VersionNoteActivity" />
-        <activity android:name=".review.view.SearchActivity" />
+        <activity android:name=".search.view.SearchActivity" />
         <activity android:name=".review.view.AddContentActivity" />
         <activity android:name=".review.view.AddPointActivity" />
         <activity android:name=".test.view.AddTestActivity"></activity>

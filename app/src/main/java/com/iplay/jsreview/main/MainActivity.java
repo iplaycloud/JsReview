@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseActivity;
@@ -27,7 +26,7 @@ import com.iplay.jsreview.commons.utils.DoubleClickExitHelper;
 import com.iplay.jsreview.review.model.bean.Unit;
 import com.iplay.jsreview.review.view.AddPointActivity;
 import com.iplay.jsreview.review.view.ReviewFragment;
-import com.iplay.jsreview.review.view.SearchActivity;
+import com.iplay.jsreview.search.view.SearchActivity;
 import com.iplay.jsreview.setting.view.SettingFragment;
 import com.iplay.jsreview.test.view.AddTestActivity;
 import com.iplay.jsreview.test.view.TestFragment;
