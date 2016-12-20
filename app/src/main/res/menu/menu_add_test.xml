@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_submit"
+        android:id="@+id/action_add_test_submit"
         android:icon="@mipmap/submit_36dp"
         android:title="@string/submit"
         app:showAsAction="always" />

@@ -34,7 +34,6 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.CountListener;
 import cn.bmob.v3.listener.FindListener;
 
-
 /**
  * Author : iplay on .
  * Mail：iplaycloud@gmail.com
@@ -98,7 +97,6 @@ public class TestFragment extends BaseFragment {
     public void onAttach(Activity activity) {
         mParentActivity = (MainActivity) activity;
         super.onAttach(activity);
-
     }
 
     @Override
@@ -119,7 +117,6 @@ public class TestFragment extends BaseFragment {
             parent.removeView(mRootView);
         }
         return mRootView;
-
     }
 
     private void creatViews() {
@@ -132,7 +129,6 @@ public class TestFragment extends BaseFragment {
 
         //小圆点
         mFAB = (FloatingActionButton) mRootView.findViewById(R.id.fab);
-
 
         //布局
         mMainLayout = (ScrollView) mRootView.findViewById(R.id.sv_main_test);
@@ -149,7 +145,6 @@ public class TestFragment extends BaseFragment {
         mBtShowAnswer = (TextView) mRootView.findViewById(R.id.bt_show_answer);
         mBtNext = (TextView) mRootView.findViewById(R.id.bt_next);
         mBtReset = (TextView) mRootView.findViewById(R.id.bt_reset);
-
     }
 
     private void setButtonListener() {
@@ -174,7 +169,6 @@ public class TestFragment extends BaseFragment {
                     CacheHelper.putToFav(mTest.getTestId() + "", mTest.getTestId());
                     Snackbar.make(mParentActivity.getRootView(), "收藏成功", Snackbar.LENGTH_SHORT).show();
                 }
-
             }
         });
         //题库做完后提示重新加载题目的按钮

@@ -39,6 +39,7 @@
     <string name="label_other">其他内容</string>
     <string name="label_cache">缓存设置</string>
     <string name="label_open_cache">设置缓存有效期</string>
+    <string name="label_clear_cache">清除缓存</string>
     <string name="label_cache_text">开启后正文缓存将会在设定的时间内失效</string>
     <string name="label_suggest">意见反馈</string>
     <string name="label_update">更新</string>

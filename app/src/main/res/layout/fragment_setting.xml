@@ -12,20 +12,22 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="@string/label_cache"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
         <ImageView
+            android:id="@+id/iv_bt_cache"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:src="@mipmap/icon_cache_24dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@id/iv_bt_cache"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            android:text="@string/label_cache"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -41,19 +43,22 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:text="@string/label_suggest"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
         <ImageView
+            android:id="@+id/iv_suggest"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:src="@mipmap/icon_suggest_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@id/iv_suggest"
+            android:paddingLeft="10dp"
+            android:text="@string/label_suggest"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="17sp" />
 
     </RelativeLayout>
 
@@ -71,16 +76,19 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@+id/iv_update"
+            android:paddingLeft="10dp"
+            android:gravity="center"
             android:text="@string/label_update"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
         <ImageView
+            android:id="@+id/iv_update"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:src="@mipmap/icon_update_24dp" />
 
     </RelativeLayout>
@@ -99,16 +107,19 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@+id/iv_about"
+            android:paddingLeft="10dp"
+            android:gravity="center"
             android:text="@string/label_about"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
         <ImageView
+            android:id="@+id/iv_about"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:src="@mipmap/icon_about_24dp" />
 
     </RelativeLayout>
@@ -127,16 +138,19 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@+id/iv_create_table"
+            android:paddingLeft="10dp"
+            android:gravity="center"
             android:text="@string/creat_table"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
         <ImageView
+            android:id="@+id/iv_create_table"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:src="@mipmap/icon_create_table_24dp" />
 
     </RelativeLayout>
@@ -155,16 +169,19 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_height="24dp"
+            android:layout_toRightOf="@+id/iv_my_fav"
+            android:paddingLeft="10dp"
+            android:gravity="center"
             android:text="@string/my_fav"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
         <ImageView
+            android:id="@+id/iv_my_fav"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:src="@mipmap/icon_fav_24dp" />
 
 
