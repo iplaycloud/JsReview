@@ -230,25 +230,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 dialog.dismiss();
 
-                Toast.makeText(MainActivity.this, "确定" + et.getText(), Toast.LENGTH_SHORT).show();
-
                 Unit mUnit = new Unit();
 
-                mUnit.setName(et.getText().toString().trim());
+                String name = et.getText().toString().trim();
+                if (name.equals("")) {
+                    Snackbar.make(mRootView, "单元名为空", Snackbar.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    mUnit.setName(name);
 
-                mUnit.save(mContext, new SaveListener() {
-                    @Override
-                    public void onSuccess() {
-                        Toast.makeText(mContext, R.string.submit_success, Toast.LENGTH_SHORT).show();
-                        //finish();
-                    }
+                    mUnit.save(mContext, new SaveListener() {
+                        @Override
+                        public void onSuccess() {
+                            Snackbar.make(mRootView, R.string.submit_success, Snackbar.LENGTH_SHORT).show();
+                            //finish();
+                        }
 
-                    @Override
-                    public void onFailure(int i, String s) {
-                        Snackbar.make(mRootView, R.string.submit_failed, Snackbar.LENGTH_SHORT).show();
-                    }
+                        @Override
+                        public void onFailure(int i, String s) {
+                            Snackbar.make(mRootView, R.string.submit_failed, Snackbar.LENGTH_SHORT).show();
+                        }
 
-                });
+                    });
+                }
             }
         });
 

@@ -1,4 +1,4 @@
-package com.iplay.jsreview.review.view;
+package com.iplay.jsreview.test.view;
 
 import android.content.Intent;
 import android.os.Bundle;

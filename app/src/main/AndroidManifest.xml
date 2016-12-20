@@ -29,7 +29,7 @@
         <activity android:name=".main.MainActivity" />
         <activity android:name=".review.view.ContentListActivity" />
         <activity android:name=".review.view.DetailActivity" />
-        <activity android:name=".review.view.FavActivity" />
+        <activity android:name=".test.view.FavActivity" />
         <activity android:name=".setting.view.SuggestActivity" />
         <activity android:name=".setting.view.AboutActivity" />
         <activity android:name=".setting.view.AuthorActivity" />

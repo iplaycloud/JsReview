@@ -14,7 +14,6 @@ import com.iplay.jsreview.R;
 import com.iplay.jsreview.commons.base.BaseFragment;
 import com.iplay.jsreview.commons.cache.CacheHelper;
 import com.iplay.jsreview.commons.view.LoadingLayout;
-import com.iplay.jsreview.review.view.FavActivity;
 import com.iplay.jsreview.test.model.bean.Test;
 
 import java.io.Serializable;

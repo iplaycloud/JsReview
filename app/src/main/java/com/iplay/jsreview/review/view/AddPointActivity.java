@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.iplay.jsreview.commons.base.BaseActivity;
 import com.iplay.jsreview.review.model.bean.Point;
 import com.iplay.jsreview.review.model.bean.Unit;
 import com.iplay.jsreview.review.view.adapter.SpinnerArrayAdapter;
+import com.iplay.jsreview.test.view.AddTestActivity;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -29,6 +32,16 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
 public class AddPointActivity extends BaseActivity {
+
+    public static final int DEFAULT = -1;
+    public static final int NO_CONTENT = 0;
+    public static final int BROWN = 1;
+    public static final int ORANGE = 3;
+    public static final int GREEN = 4;
+    public static final int LIGHT_BLUE = 5;
+    public static final int PURPLE = 6;
+    public static final int RED = 7;
+    public static final int PINK = 8;
 
     ArrayAdapter<String> adapter;
     // 建立数据源
@@ -41,6 +54,11 @@ public class AddPointActivity extends BaseActivity {
     private EditText et_unit;
     private TextInputLayout mPoint;
     private Spinner sp_select;
+
+    private RadioGroup rg_color;
+
+    private int color = 1;
+
     //防止多次提交数据
     private boolean isPosting = false;
 
@@ -118,6 +136,37 @@ public class AddPointActivity extends BaseActivity {
     private void initView() {
         mPoint = (TextInputLayout) findViewById(R.id.ti_add_point_point);
         sp_select = (Spinner) findViewById(R.id.sp_select);
+
+        rg_color = (RadioGroup) findViewById(R.id.rg_color);
+
+        //绑定一个匿名监听器
+        rg_color.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup arg0, int arg1) {
+                // TODO Auto-generated method stub
+                //获取变更后的选中项的ID
+                int radioButtonId = arg0.getCheckedRadioButtonId();
+                //根据ID获取RadioButton的实例
+                RadioButton rb = (RadioButton) AddPointActivity.this.findViewById(radioButtonId);
+
+                //更新文本内容，以符合选中项
+                if (rb.getText().equals("棕")) {
+                    color = 1;
+                } else if (rb.getText().equals("橙")) {
+                    color = 3;
+                } else if (rb.getText().equals("绿")) {
+                    color = 4;
+                } else if (rb.getText().equals("蓝")) {
+                    color = 5;
+                } else if (rb.getText().equals("紫")) {
+                    color = 6;
+                } else if (rb.getText().equals("红")) {
+                    color = 7;
+                } else if (rb.getText().equals("粉")) {
+                    color = 8;
+                }
+            }
+        });
     }
 
     @Override
@@ -136,10 +185,10 @@ public class AddPointActivity extends BaseActivity {
         switch (item.getItemId()) {
 
             case R.id.action_add_content_submit:
-                Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
 
                 String unit = sp_select.getSelectedItem().toString();
                 String point = mPoint.getEditText().getText().toString();
+
                 if (TextUtils.isEmpty(point)) {
                     Snackbar.make(mRootView, R.string.dont_no_text, Snackbar.LENGTH_SHORT).show();
                 } else {
@@ -165,7 +214,8 @@ public class AddPointActivity extends BaseActivity {
                 mPoint.setUnit(u);
             }
         }
-        mPoint.setColor(4);
+
+        mPoint.setColor(color);
 
         if (!isPosting) {
             isPosting = true;
@@ -173,7 +223,7 @@ public class AddPointActivity extends BaseActivity {
                 @Override
                 public void onSuccess() {
                     isPosting = false;
-                    Toast.makeText(AddPointActivity.this, R.string.submit_success, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(mRootView, R.string.submit_success, Snackbar.LENGTH_SHORT).show();
                     //finish();
                 }
 
