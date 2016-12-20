@@ -12,7 +12,7 @@ import com.iplay.jsreview.commons.base.BaseFragment;
 import com.iplay.jsreview.review.view.ContentListActivity;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

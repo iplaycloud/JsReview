@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：存取Settings SharePrefrence 配置
  */

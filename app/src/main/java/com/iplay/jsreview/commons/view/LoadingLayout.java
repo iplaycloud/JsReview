@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.iplay.jsreview.R;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

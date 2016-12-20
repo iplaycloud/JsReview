@@ -12,7 +12,7 @@ import com.iplay.jsreview.R;
 import com.iplay.jsreview.test.model.bean.Test;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

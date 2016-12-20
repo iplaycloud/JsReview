@@ -1,7 +1,7 @@
 package com.iplay.jsreview.setting.model.bean;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：记录更新日志
  */

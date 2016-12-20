@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,10 @@ public class AddContentActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_content);
+
+        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_add_content, null);
+        setContentView(mRootView);
+
         initToolBar();
         showOrHideToolBarNavigation(true);
 

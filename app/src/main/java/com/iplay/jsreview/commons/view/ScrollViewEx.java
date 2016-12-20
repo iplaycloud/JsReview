@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ScrollView;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

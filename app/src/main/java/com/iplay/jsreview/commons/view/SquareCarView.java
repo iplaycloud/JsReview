@@ -5,7 +5,7 @@ import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

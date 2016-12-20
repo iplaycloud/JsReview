@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  * 复习列表的适配器 （标题+GridView）

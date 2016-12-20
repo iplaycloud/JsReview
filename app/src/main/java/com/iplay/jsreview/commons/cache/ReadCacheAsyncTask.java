@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.lang.ref.WeakReference;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

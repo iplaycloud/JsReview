@@ -26,7 +26,7 @@ import com.github.channguyen.rsv.RangeSliderView;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  * 重写分段选择View 取消了up事件播放的动画

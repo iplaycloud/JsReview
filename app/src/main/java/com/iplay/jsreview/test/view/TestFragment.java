@@ -35,7 +35,7 @@ import cn.bmob.v3.listener.CountListener;
 import cn.bmob.v3.listener.FindListener;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

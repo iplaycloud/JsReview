@@ -18,7 +18,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

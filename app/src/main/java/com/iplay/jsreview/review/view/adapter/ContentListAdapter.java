@@ -11,7 +11,7 @@ import com.iplay.jsreview.commons.base.MyBaseAdapter;
 import com.iplay.jsreview.review.model.bean.Content;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

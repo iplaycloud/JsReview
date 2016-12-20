@@ -3,7 +3,7 @@ package com.iplay.jsreview.test.model.bean;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Author : iplay on .
+ * Author : iplay
  * Mail：iplaycloud@gmail.com
  * Description：
  */

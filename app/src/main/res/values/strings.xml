@@ -25,7 +25,7 @@
     <string name="submit_success">上传成功</string>
     <string name="submit_failed">上传失败</string>
     <string name="sugesst_error">信息反馈失败请重试T_T</string>
-    <string name="dont_repeat">您宝贵的意见正在提交中哦，请不要重复提交</string>
+    <string name="dont_repeat">正在提交中哦，请不要重复提交</string>
     <string name="submit_repeat">请不要重复提交</string>
     <string name="bt_hind">隐藏</string>
     <string name="bt_show">显示</string>

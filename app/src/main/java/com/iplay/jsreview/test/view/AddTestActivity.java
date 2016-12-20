@@ -5,6 +5,7 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,7 +64,10 @@ public class AddTestActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_test);
+
+        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_add_test, null);
+        setContentView(mRootView);
+
         initToolBar();
         showOrHideToolBarNavigation(true);
 
@@ -157,10 +161,12 @@ public class AddTestActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
 
             case R.id.action_add_test_submit:
-                Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
+
+                //Toast.makeText(this, "submit", Toast.LENGTH_SHORT).show();
 
                 String question = ti_test_title.getEditText().getText().toString();
 
@@ -174,11 +180,23 @@ public class AddTestActivity extends BaseActivity {
                 String answerF = et_F.getText().toString();
 
                 if (TextUtils.isEmpty(question)) {
+
                     Snackbar.make(mRootView, "不能上传空白题目", Snackbar.LENGTH_SHORT).show();
+
                 } else if ((answer_type == 2 && TextUtils.isEmpty(answer))) {
+
                     Snackbar.make(mRootView, "不能上传空白答案", Snackbar.LENGTH_SHORT).show();
-                } else if ((answer_type == 1 && (!TextUtils.isEmpty(answerA) && !TextUtils.isEmpty(answerB) && !TextUtils.isEmpty(answerC) && !TextUtils.isEmpty(answerD) && !TextUtils.isEmpty(answerE) && !TextUtils.isEmpty(answerF)))) {
+
+                } else if ((answer_type == 1 &&
+                        (TextUtils.isEmpty(answerA)
+                                && TextUtils.isEmpty(answerB)
+                                && TextUtils.isEmpty(answerC)
+                                && TextUtils.isEmpty(answerD)
+                                && TextUtils.isEmpty(answerE)
+                                && TextUtils.isEmpty(answerF)))) {
+
                     Snackbar.make(mRootView, "不能上传空白答案", Snackbar.LENGTH_SHORT).show();
+
                 } else {
                     Test mTest = new Test();
 

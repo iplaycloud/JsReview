@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +33,9 @@ public class AddPointActivity extends BaseActivity {
     ArrayAdapter<String> adapter;
     // 建立数据源
     ArrayList mItems = new ArrayList();
+
     private View mRootView;
+
     private ArrayList<Unit> unitArrayList = new ArrayList<>();
     private TextInputLayout mUnit;
     private EditText et_unit;
@@ -44,7 +47,10 @@ public class AddPointActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_point);
+
+        mRootView = LayoutInflater.from(this).inflate(R.layout.activity_add_point, null);
+        setContentView(mRootView);
+
         initToolBar();
         showOrHideToolBarNavigation(true);
 
